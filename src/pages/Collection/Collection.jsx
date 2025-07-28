@@ -1,5 +1,5 @@
 import React,{useEffect, useContext,useState} from 'react'
-import './Collection.css'
+import './collection.css'
 import { IoIosSearch } from "react-icons/io";
 import { ShopContext } from '../../ShopContext/ShopContext.jsx'
 import Item from '../../component/Item/Item';
