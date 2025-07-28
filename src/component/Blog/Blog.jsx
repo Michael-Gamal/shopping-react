@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import './Blog.css'
+import './blog.css'
 import {blogs} from '../../assets/data' 
 const Blog = () => {
 
