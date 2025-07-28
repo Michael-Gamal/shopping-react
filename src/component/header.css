@@ -1,0 +1,123 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+header .logo a {
+    font-size: 26px;
+    font-weight: bold;
+}
+header .links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(244 244 247);
+    border-radius: 20px;
+}
+header  a {
+    color: black;
+}
+header .links a {
+    padding: 12px 18px;
+}
+header .button {
+    display: flex;
+    gap: 20px;
+}
+header .button .cart ,
+header .button .login  {
+    color: black;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 1px solid black;
+    font-weight: 600;
+}
+header .button .login a  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+header .button .login a .icon {
+    font-size: 18px;
+}
+header .button .cart  {
+    position: relative;
+}
+header .button .cart span {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: -7px;
+    right: 0;
+    background-color: rgb(255, 143, 156);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+header .button .cart span p {
+    font-size: 12px;
+    color: #fff;
+}
+
+header .active {
+    color: #fff;
+    background-color: #000;
+    border-radius: 20px;
+    width: fit-content
+}
+/* header .burger-links  {
+    width: 15px;
+    height: 14px;
+} */
+
+header .burger-links  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+}
+
+header .burger-links span {
+    width: 20px;
+    height: 2px;
+    background-color: #000;
+}
+
+ /* X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {  }
+
+/*  Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) { 
+    header .links {
+        display: none;
+    }
+        header .links {
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        right: 15px;        
+        width: calc(100% - 30px);
+        padding-top: 10px;
+        border-radius: inherit;
+        transition: 0.3s;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);;
+    }
+ }
+
+/*  Medium devices (tablets, less than 992px) */
+@media (min-width: 767.98px) { 
+    header .burger-links  {
+        display: none;
+    }
+ }
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {  }
+
+/*  X-Large devices (large desktops, less than 1400px) */
+@media (max-width: 1399.98px) {  }

@@ -1,0 +1,105 @@
+.place-order-page {
+    padding: 50px 0;
+    background-color: rgb(244 244 247);
+} 
+.place-order-page .content-page {
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+    /* margin-top: 25 */
+    /* align-items: center; */
+} 
+.place-order-page .content-page .left-side, 
+.place-order-page .content-page .right-side{
+    flex: 1;
+} 
+.place-order-page .content-page .left-side form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px 20px;
+}
+.place-order-page .content-page .left-side form .inputs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.place-order-page .content-page .left-side form .inputs-container .width-50,
+.place-order-page .content-page .left-side form .inputs-container .width-100
+  {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.place-order-page .content-page .left-side form .inputs-container input{
+    padding: 8px 12px;
+    outline: none;
+}
+.place-order-page .content-page .left-side form .inputs-container .width-50 input {
+    flex: .5;
+}
+.place-order-page .content-page .left-side form .inputs-container .width-100 input{
+    /* flex: 1; */
+    width: 100%;
+    flex-wrap: wrap;
+}
+.place-order-page .cart-amount .content {
+    flex-direction: column;
+    align-items: start;
+
+}
+.place-order-page .content-page .cart-amount {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px 20px;
+    flex: 1;
+}
+
+.place-order-page .cart-amount .content .details {
+    width: 100%;
+}
+.place-order-page .cart-amount .content .details {
+    width: 100%;
+}
+.place-order-page .cart-amount .content .proceed-to-check-out {
+    display: none;
+}
+.place-order-page section.cart-total {
+    margin: 0px 0;
+}
+.place-order-page .cart-amount .content .details {
+    margin-bottom: 0 !important;
+}
+.place-order-page .content-page .right-side .payment-mothed{    
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+.place-order-page .content-page .right-side .payment-mothed button{    
+    cursor: pointer;
+    margin: 20px 10px 10px 0px;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: none;
+    border-radius: 20px;
+}
+.place-order-page .content-page .right-side .payment-mothed button.active{    
+    background-color: #000;
+    color: #fff;
+}
+.place-order-page .content-page .right-side button.submit{    
+    cursor: pointer;
+    padding: 15px 25px;
+    background-color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: rgb(255, 143, 156);
+    color: #fff;
+}

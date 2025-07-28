@@ -1,0 +1,108 @@
+.cart-page {
+    background-color: rgb(244 244 247);
+    padding: 10px 30px;
+}
+.cart-page .cart {
+}
+.cart-page .cart .head{
+    display: flex; 
+    align-items: center ;
+    height: 70px;
+    margin-bottom: 20px;
+}
+.cart-page .cart .head .title {  
+
+    margin-right: 5px;
+}
+.cart-page .cart .head .title h2 {  
+    margin-bottom: 0 !important;
+}
+.cart-page .cart .head .count-item{
+}
+.cart-page .cart .head .count-item p{
+    margin-top: 3px;
+    color: rgb(123 123 123);
+}
+.cart-page .cart .body {}
+.cart-page .cart .body .products{
+
+}
+.cart-page .cart .body .products .product {
+    background-color: #fff;
+    display: flex;align-items: center;
+    flex: 1;
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 6px;
+}
+.cart-page .cart .body .products .product .image {
+    width: 75px;
+}
+.cart-page .cart .body .products .product .image img {
+    width: 100%;
+}
+.cart-page .cart .body .products .product .content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-left: 10px;
+    gap: 7px;
+}
+.cart-page .cart .body .products .product .content .name-delate-product {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    
+}
+.cart-page .cart .body .products .product .content .name-delate-product h5 {
+    font-size: 15px;
+}
+.cart-page .cart .body .products .product .content .name-delate-product .icon,
+.cart-page .cart .body .products .product .content .count-price-product .count .icon{
+    color: rgb(255 143 156);
+    /* display: flex; */
+    /* flex-direction: column; */
+    cursor: pointer;
+}
+.cart-page .cart .body .products .product .content .color-product {}
+.cart-page .cart .body .products .product .content .color-product p {
+    color: rgb(123 123 123);
+    font-weight: bold;
+    font-size: 15px;
+}
+.cart-page .cart .body .products .product .content .count-price-product {
+    display: flex;
+    justify-content: space-between;
+}
+.cart-page .cart .body .products .product .content .count-price-product .count{
+    display: flex;
+    gap: 8px;
+    background-color: rgb(244 244 247); ;
+    color: rgb(123 123 123);
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 1px;
+}
+.cart-page .cart .body .products .product .content .count-price-product .count button{
+background-color: #fff;
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.cart-page .cart .body .products .product .content .count-price-product .count .minus,
+.cart-page .cart .body .products .product .content .count-price-product .count .plus{
+
+}
+.cart-page .cart .body .products .product .content .count-price-product .count p{
+    color: rgb(123 123 123);
+}
+.cart-page .cart .body .products .product .content .count-price-product .count{}
+.cart-page .cart .body .products .product .content .count-price-product .price{}
+.cart-page .cart .body .products .product .content .count-price-product .price h4{}

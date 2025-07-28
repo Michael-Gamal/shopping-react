@@ -1,0 +1,38 @@
+section.product-feature {
+        background-color: rgb(244 244 247);
+    padding: 10px;
+    border-radius: 12px;
+}
+section.product-feature .features {
+    display: grid;
+    grid-template-columns: repeat( auto-fill, minmax(350px, 1fr) );
+    gap: 50px;
+}
+section.product-feature .features .feat {
+    display: flex;
+}
+section.product-feature .features .feat .icon {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    font-size: 30px;
+}
+section.product-feature .features .feat .icon.one {
+    color: rgb(234 179 8);
+}
+section.product-feature .features .feat .icon.two {
+    color: rgb(239 68 68);
+}
+section.product-feature .features .feat .icon.three {
+    color: rgb(59 130 246);
+    
+}
+section.product-feature .features .feat  .text{}
+section.product-feature .features .feat  .text h3 {
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+section.product-feature .features .feat  .text p{
+    font-size: 15px;
+    color: rgb(123 123 123);
+}

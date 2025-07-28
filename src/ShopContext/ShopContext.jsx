@@ -1,0 +1,129 @@
+import React, {createContext, useEffect,useState} from 'react'
+import { products} from '../assets/data.js'
+import { toast } from 'react-toastify'
+import {  useNavigate } from 'react-router-dom'
+
+export const ShopContext = createContext()
+
+
+const ShopContextProvider = (props) => {
+
+    const [cartItems, setCartItems] = useState([])
+    const navigate = useNavigate()
+  const currency = "$ "; 
+  const delivery_charges = 10;
+
+
+  const addToCart = (productId,color) => {
+    if (!color) {
+      toast.error("Please select a color")
+      return
+    }
+    // console.log(`product name : ${productId} color: ${color} `);
+
+    let cartData = structuredClone(cartItems)
+    if (cartData[productId]) {
+
+      if (cartData[productId][color]) {
+        cartData[productId][color] += 1
+      }else {
+        cartData[productId][color] = 1
+      }
+      
+    }else {
+      cartData[productId] = {}
+      cartData[productId][color] = 1
+    }
+
+    setCartItems(cartData)
+
+
+    // console.log(cartData);
+    
+  }
+
+
+
+
+
+
+
+
+
+  // Getting Total Cart Count
+  const getCartCount = () => {
+    let totalCount = 0
+    for (const items in cartItems) {
+
+      for (const item in cartItems[items]) {
+
+        try {
+          if (cartItems[items][item]) {
+            totalCount += cartItems[items][item]
+
+          }
+        } catch {
+          console.log('Error in getting cart count', error)
+        }
+
+
+
+      } 
+      
+      
+    }
+    return totalCount
+  }
+
+
+
+const updateQuantity = (item, color, quantity) => {
+  let cartData = structuredClone(cartItems)
+  cartData[item][color] = quantity
+  setCartItems(cartData)
+}
+
+
+
+// Get total price of cart items
+const getCartAmount = () => {
+  let totalAmount = 0
+  for (const items in cartItems) {
+    let itemInfo = products.find((product) => product._id === items)
+    for (const item in cartItems[items]) {
+      try {
+        if (cartItems[items][item] > 0) {
+          totalAmount += itemInfo.price * cartItems[items][item]
+          
+        }
+      } catch (error) {
+        console.log('Error in getting total price', error)
+      }
+    }
+  }
+  return totalAmount
+};
+
+
+
+
+    
+    const value = {
+      products,
+      addToCart,
+      getCartCount,
+      cartItems,
+      navigate,
+      currency,
+      delivery_charges,
+      updateQuantity,
+      getCartAmount
+    }
+  return (
+    <ShopContext.Provider value={value}> 
+      {props.children}
+    </ShopContext.Provider>
+  )
+}
+
+export default ShopContextProvider
