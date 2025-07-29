@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../component/Blog/blog.css'
+import '../../component/Blog/blogComponent.css'
 import './blog.css'
 import {blogs} from '../../assets/data'
 import Header from '../../component/Header'
