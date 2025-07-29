@@ -1,6 +1,7 @@
 import React from 'react'
 import './about.css'
 import Title from '../Title/Title'
+
 import TestimonialImage from '../../assets/testimonial.png' 
 import { FaQuoteLeft } from "react-icons/fa6";
 import { FaQuoteRight } from "react-icons/fa6";
