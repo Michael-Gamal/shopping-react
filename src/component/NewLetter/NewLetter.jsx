@@ -1,5 +1,5 @@
 import React from 'react'
-import './newLetter.css';
+import './newletter.css';
 import { FaFacebookF } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io";
 import { MdOutlineSportsBasketball } from "react-icons/md";
