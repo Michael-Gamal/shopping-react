@@ -1,5 +1,5 @@
 import React,{useContext, useEffect,useState} from 'react'
-import Title from '../Title/Title'
+import Title from '../Title/Title.jsx'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules' ;
 import 'swiper/css';
