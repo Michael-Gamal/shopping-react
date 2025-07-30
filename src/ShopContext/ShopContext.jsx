@@ -18,6 +18,8 @@ const ShopContextProvider = (props) => {
     if (!color) {
       toast.error("Please select a color")
       return
+    }else {
+      toast.success("Added to your cart")
     }
     // console.log(`product name : ${productId} color: ${color} `);
 

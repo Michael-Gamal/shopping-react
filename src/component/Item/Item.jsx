@@ -2,12 +2,19 @@ import React from 'react'
 import './item.css' // Assuming you have a CSS file for styling
 import { Link } from 'react-router-dom'
 
+const scroltop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior : "smooth"
+  })
+}
 const Item = ({products}) => {
   return (
     <div className='items'>
       <Link 
         to={`/product/${products._id}`}
-        className="item">
+        className="item"
+        onClick={scroltop}>
         <div className="image">
             <img src={products.image[0]} alt={products.name} className="product-image" />
         </div>
