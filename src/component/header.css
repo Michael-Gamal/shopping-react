@@ -114,4 +114,16 @@ header .burger-links span {
     header .burger-links  {
         display: none;
     }
+        header .button  {
+        gap: 5px;
+    }
+ }
+ @media (max-width: 377px) { 
+        header .button  {
+        gap: 5px;
+    }
+        header .links {
+        right: 30px;
+        width: calc(100% - 60px);
+    }
  }

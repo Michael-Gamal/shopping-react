@@ -15,7 +15,9 @@ const Header = () => {
       <div className="logo">
         <Link   to="/">Shopanze</Link>
       </div>
-      <div className="links" style={{display: displaylinks}}>
+      <div className="links" style={{
+        display: displaylinks
+      }}>
         <Link  className={`${location.pathname === '/' ? "active " : "" } `}  to="/ ">Home</Link>
         <Link  className={`${location.pathname === '/collection' ? "active " : "" } `}  to="/collection">Collection</Link>
         <Link  className={`${location.pathname === '/blog' ? "active " : "" } `} to="/blog">Blog</Link>
@@ -35,7 +37,7 @@ const Header = () => {
         
 
         </div>
-      <div onClick={() => {displaylinks === "none" ? setDisplyLinks("flex") : setDisplyLinks("none")}} className="burger-links" >
+      <div onClick={() => {displaylinks === "" ? setDisplyLinks("flex") : setDisplyLinks("")}} className="burger-links" >
         <span></span>
         <span></span>
         <span></span>
