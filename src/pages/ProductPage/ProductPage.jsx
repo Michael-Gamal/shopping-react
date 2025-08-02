@@ -1,5 +1,5 @@
-import React, { useContext, useState,useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useContext, useState,useEffect} from 'react'
+import { useParams,useNavigate } from 'react-router-dom'
 import { ShopContext } from '../../ShopContext/ShopContext.jsx'
 import { FaStar } from "react-icons/fa6";
 import { FaRegStarHalfStroke } from "react-icons/fa6";
@@ -15,13 +15,15 @@ import Header from '../../component/Header.jsx';
 import Footer from '../../component/Footer/Footer.jsx';
 
 
+
 const ProductPage = () => {
   
-  const {products,addToCart} = useContext(ShopContext)
+  const {products,addToCart,currentUser,setCurrentUser} = useContext(ShopContext)
   const {productId} = useParams()
   const [product, setProduct] = useState(null)
   const [image, setImage] = useState()
   const [color, setColor] = useState()
+  const navigate = useNavigate(); 
 
 
 
@@ -54,6 +56,32 @@ const ProductPage = () => {
 if (!product) {
     return <div>Loading...</div>
   }
+
+  const handleAddCard = () => {
+  if (!currentUser) {
+    navigate('/login');
+  return;
+  
+
+  }  
+
+
+
+  // جلب cart الخاص بالمستخدم الحالي من localStorage
+  const cartKey = `cart_${currentUser.email}`;
+  const userCart = JSON.parse(localStorage.getItem(cartKey)) || [];
+
+  // إضافة المنتج الجديد للسلة
+  userCart.push({ productId: product._id, color });
+
+  // حفظ السلة المحدثة في localStorage
+  localStorage.setItem(cartKey, JSON.stringify(userCart));
+
+  // يمكنك أيضًا تحديث الـ context أو الـ state إذا كنت تستخدمهم
+  addToCart(product._id, color);
+
+
+}
 
   return (
     <div className='product-page'>
@@ -114,7 +142,7 @@ if (!product) {
             </div>
             <div className="add-fav">
               <button
-                onClick={() => addToCart(product._id,color)}
+                onClick={handleAddCard}
                 className='addToCart'>Add to cart <TbShoppingBagPlus /> </button>
               <button className='fav'> 
                 <MdFavorite />

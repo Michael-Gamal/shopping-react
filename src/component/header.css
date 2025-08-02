@@ -44,6 +44,34 @@ header .button .login a .icon {
 header .button .cart  {
     position: relative;
 }
+header .button .login  {
+    position: relative;
+}
+.user-option {
+    position: absolute;
+    bottom: 0;
+    top: 40px;
+    right: 0;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+    background-color: #fff;
+    display: none;
+    flex-direction: column;
+}
+.user-option button {   
+    width: 100%;
+    cursor: pointer;
+    background-color: #fff;
+    border: none;
+    border-bottom: 1px solid #000;
+    padding: 10px; 
+    transition: 0.3s;
+    font-size: 16px;
+}
+.user-option button:hover {   
+    background-color: #fcf7f7;
+}
+
 header .button .cart span {
     position: absolute;
     width: 18px;

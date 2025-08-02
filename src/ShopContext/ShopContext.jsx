@@ -8,8 +8,9 @@ export const ShopContext = createContext()
 
 const ShopContextProvider = (props) => {
 
-    const [cartItems, setCartItems] = useState([])
-    const navigate = useNavigate()
+  const [cartItems, setCartItems] = useState([])
+  const [currentUser, setCurrentUser] = useState(null)
+  const navigate = useNavigate()
   const currency = "$ "; 
   const delivery_charges = 10;
 
@@ -108,6 +109,17 @@ const getCartAmount = () => {
 
 
 
+// login user
+useEffect(() => {
+  const user = localStorage.getItem("currentUser");
+  if (user) {
+    setCurrentUser(JSON.parse(user))
+  }
+},[])
+
+
+
+
 
     
     const value = {
@@ -119,7 +131,9 @@ const getCartAmount = () => {
       currency,
       delivery_charges,
       updateQuantity,
-      getCartAmount
+      getCartAmount,
+      currentUser,
+      setCurrentUser
     }
   return (
     <ShopContext.Provider value={value}> 

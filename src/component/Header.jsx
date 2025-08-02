@@ -7,9 +7,16 @@ import { CiUser } from "react-icons/ci";
 const Header = () => {
 
   // const [activeLink, setActiveLink] = useState('')
-  const {getCartCount} = useContext(ShopContext)
+  const {getCartCount,currentUser,setCurrentUser} = useContext(ShopContext)
   const [displaylinks, setDisplyLinks] = useState("")
+  const [displayUser, setDisplyUser] = useState("")
   
+
+  const handleLogout = () => {
+    localStorage.removeItem("currentUser");
+    setCurrentUser(null)
+  }
+
   return (
     <header>
       <div className="logo">
@@ -33,8 +40,25 @@ const Header = () => {
         </div>
         <div className="login">
 
-        <Link to="/login">Login <CiUser className='icon' /></Link>
-        
+          {
+          currentUser
+            ? <Link onClick={() => {displayUser === "" ? setDisplyUser("flex") : setDisplyUser("")}} to=""><CiUser className='icon' /> {`Hi ${currentUser.username}`} </Link>
+            : <Link to='/login'  >Login <CiUser className='icon' /></Link>
+          }
+          
+          {
+            currentUser ? (
+              <div  className="user-option" style={{
+                display: displayUser
+              }}>
+                <button onClick={handleLogout}>Log Out</button>
+                <button>My favorut product</button>
+              </div>
+
+            ) : (
+              ''
+            )
+          }
 
         </div>
       <div onClick={() => {displaylinks === "" ? setDisplyLinks("flex") : setDisplyLinks("")}} className="burger-links" >
