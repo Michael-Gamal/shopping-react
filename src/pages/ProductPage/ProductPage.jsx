@@ -61,26 +61,8 @@ if (!product) {
   if (!currentUser) {
     navigate('/login');
   return;
-  
-
   }  
-
-
-
-  // جلب cart الخاص بالمستخدم الحالي من localStorage
-  const cartKey = `cart_${currentUser.email}`;
-  const userCart = JSON.parse(localStorage.getItem(cartKey)) || [];
-
-  // إضافة المنتج الجديد للسلة
-  userCart.push({ productId: product._id, color });
-
-  // حفظ السلة المحدثة في localStorage
-  localStorage.setItem(cartKey, JSON.stringify(userCart));
-
-  // يمكنك أيضًا تحديث الـ context أو الـ state إذا كنت تستخدمهم
   addToCart(product._id, color);
-
-
 }
 
   return (

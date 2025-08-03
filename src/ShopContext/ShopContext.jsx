@@ -2,7 +2,6 @@ import React, {createContext, useEffect,useState} from 'react'
 import { products} from '../assets/data.js'
 import { toast } from 'react-toastify'
 import {  useNavigate } from 'react-router-dom'
-
 export const ShopContext = createContext()
 
 
@@ -37,43 +36,21 @@ const ShopContextProvider = (props) => {
       cartData[productId] = {}
       cartData[productId][color] = 1
     }
-
     setCartItems(cartData)
-
-
-    // console.log(cartData);
-    
   }
-
-
-
-
-
-
-
-
-
   // Getting Total Cart Count
   const getCartCount = () => {
     let totalCount = 0
     for (const items in cartItems) {
-
       for (const item in cartItems[items]) {
-
         try {
           if (cartItems[items][item]) {
             totalCount += cartItems[items][item]
-
           }
         } catch {
           console.log('Error in getting cart count', error)
         }
-
-
-
       } 
-      
-      
     }
     return totalCount
   }

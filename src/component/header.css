@@ -57,6 +57,7 @@ header .button .login  {
     background-color: #fff;
     display: none;
     flex-direction: column;
+    z-index: 999;
 }
 .user-option button {   
     width: 100%;
@@ -96,10 +97,6 @@ header .active {
     border-radius: 20px;
     width: fit-content
 }
-/* header .burger-links  {
-    width: 15px;
-    height: 14px;
-} */
 
 header .burger-links  {
     display: flex;

@@ -34,11 +34,13 @@ const handleSubmit = (e) => {
     
     users.push(formData)  
     localStorage.setItem('users', JSON.stringify(users));
-    setFormData({ username: "", email: "", password: "" });
-        if (userState === "Sign Up") {
-        navigate('/'); 
+    if (userState === "Sign Up") {
+      navigate('/login'); 
+        setUserState("Login")
     }
   } else if (userState === "Login") {
+                setFormData({ username: "", email: "", password: "" });
+
     const userFound = users.find(
       (user) => 
         user.email === formData.email && 
@@ -47,7 +49,6 @@ const handleSubmit = (e) => {
     );
     if (userFound) {
       alert("Login Successffuly");
-            // setFormData({ username: "", email: "", password: "" });
         localStorage.setItem('currentUser', JSON.stringify(userFound))
         setCurrentUser(userFound)
       navigate('/');
