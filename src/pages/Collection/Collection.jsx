@@ -1,4 +1,4 @@
-import React,{useEffect, useContext,useState} from 'react'
+import {useEffect, useContext,useState} from 'react'
 import './collection.css'
 import { IoIosSearch } from "react-icons/io";
 import { ShopContext } from '../../ShopContext/ShopContext.jsx'
@@ -61,7 +61,7 @@ const selectedCate = (category) => {
 
 
   useEffect(() => {
-    let productSearch = products.filter((product) => cateSelect.includes(product.category));
+    const productSearch = products.filter((product) => cateSelect.includes(product.category));
     setFilteredProducts(productSearch) 
     
     
@@ -81,8 +81,8 @@ const selectedCate = (category) => {
 
   
   useEffect(() => {
-      let filtered = applyFilter()
-      let sorted = applySorting(filtered)
+      const filtered = applyFilter()
+      const sorted = applySorting(filtered)
 
       setFilteredProducts( sorted )
       setCurrentPage(1)
@@ -115,8 +115,8 @@ const selectedCate = (category) => {
           <div className="fillter-cate">
             <h3>Category</h3>
             {
-              categories.map((category, index) => (
-                <label onChange={() => selectedCate(category)} className="category" key={index}>
+              categories.map((category) => (
+                <label onChange={() => selectedCate(category)} className="category" key={category}>
                   <input type="checkbox" id={category} />
                   <span>{category}</span>
                 </label>

@@ -1,4 +1,4 @@
-import React,{useContext, useEffect, useState} from 'react'
+import {useContext, useEffect, useState} from 'react'
 import './cart.css'
 import Title from '../../component/Title/Title'
 import { ShopContext } from '../../ShopContext/ShopContext'
@@ -10,7 +10,7 @@ import Header from '../../component/Header'
 const Cart = () => {
 
 
-  const {products, currency, cartItems, getCartCount,updateQuantity , navigate} = useContext(ShopContext)
+  const {products, currency, cartItems, getCartCount,updateQuantity } = useContext(ShopContext)
   
 
   const [ cartData, setCartData ] = useState([])
@@ -80,11 +80,11 @@ const decrement = (id, color) => {
             <div className="body">
                 <div className="products">
                     {
-                        cartData.map((item,i) => {
+                        cartData.map((item) => {
                             const productData = products.find((product) => product._id === item._id);
                             const key = `${item._id}-${item.color}`;
                             return (
-                                <div key={i} className="product">
+                                <div key={item._id} className="product">
                                     <div className="image">
                                         <img className='' src={productData.image[0]} alt="Product Image" />
 

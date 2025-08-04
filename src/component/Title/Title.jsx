@@ -1,4 +1,3 @@
-import React from 'react'
 import './title.css'
 const Title = ({title1,title2,style1,style2,disc}) => {
   return (

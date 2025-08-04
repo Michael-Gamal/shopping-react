@@ -1,4 +1,3 @@
-import React from 'react'
 import '../../component/Blog/blogComponent.css'
 import './blog.css'
 import {blogs} from '../../assets/data'
@@ -10,8 +9,8 @@ const Blog = () => {
         <Header />
               <div className="blogs">
             { 
-                blogs.map((blog, index) => (
-                    <div className="blog" key={index}>
+                blogs.map((blog, title) => (
+                    <div className="blog" key={title}>
                         <div className="blog-image">
                             <img src={blog.image} alt={blog.title} />
                         </div>

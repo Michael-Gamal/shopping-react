@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import {useState} from 'react'
 import './placeorder.css'
 import CartTotal from '../../component/CartTotal/CartTotal'
 import Title from '../../component/Title/Title'

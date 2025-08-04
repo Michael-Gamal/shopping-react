@@ -1,4 +1,4 @@
-import React, { useState,useContext } from 'react'
+import { useState,useContext } from 'react'
 import HeadphoneImage from '../../assets/headphones.png'
 import { useNavigate } from 'react-router-dom' // Add this import
 import {ShopContext} from '../../ShopContext/ShopContext.jsx'
@@ -39,7 +39,7 @@ const handleSubmit = (e) => {
         setUserState("Login")
     }
   } else if (userState === "Login") {
-                setFormData({ username: "", email: "", password: "" });
+      setFormData({ username: "", email: "", password: "" });
 
     const userFound = users.find(
       (user) => 
@@ -48,7 +48,6 @@ const handleSubmit = (e) => {
 
     );
     if (userFound) {
-      alert("Login Successffuly");
         localStorage.setItem('currentUser', JSON.stringify(userFound))
         setCurrentUser(userFound)
       navigate('/');
@@ -114,7 +113,7 @@ const handleSubmit = (e) => {
                   <div className="button-sgin-up">
                     <button type='submit' className="sgin-up">{userState}</button>
                     <p>Forgot your password ?</p>
-                    <p>Don't have an account ? <span onClick={() => setUserState("Sign Up")}>Create an account</span> </p>
+                    <p>Don&apos;t have an account ? <span onClick={() => setUserState("Sign Up")}>Create an account</span> </p>
                   </div>
                   )
                 }

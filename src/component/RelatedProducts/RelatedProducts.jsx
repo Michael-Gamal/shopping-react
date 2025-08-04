@@ -1,4 +1,4 @@
-import React,{useContext,useEffect,useState} from 'react'
+import {useContext,useEffect,useState} from 'react'
 import './relatedproduct.css'
 import Title from '../Title/Title.jsx'
 import Item from '../Item/Item.jsx'

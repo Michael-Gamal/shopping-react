@@ -1,11 +1,9 @@
 
 import './App.css'
-import Header from './component/Header'
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Collection from './pages/Collection/Collection'
 import Blog from './pages/Bolg/Blog.jsx'
-import Footer from './component/Footer/Footer'
 import ProductPage from './pages/ProductPage/ProductPage.jsx'
 import { ToastContainer } from 'react-toastify'
 import Cart from './pages/Cart/Cart.jsx'

@@ -1,4 +1,4 @@
-import React, {createContext, useEffect,useState} from 'react'
+import  {createContext, useEffect,useState} from 'react'
 import { products} from '../assets/data.js'
 import { toast } from 'react-toastify'
 import {  useNavigate } from 'react-router-dom'
@@ -21,9 +21,8 @@ const ShopContextProvider = (props) => {
     }else {
       toast.success("Added to your cart")
     }
-    // console.log(`product name : ${productId} color: ${color} `);
 
-    let cartData = structuredClone(cartItems)
+    const cartData = structuredClone(cartItems)
     if (cartData[productId]) {
 
       if (cartData[productId][color]) {
@@ -48,7 +47,7 @@ const ShopContextProvider = (props) => {
             totalCount += cartItems[items][item]
           }
         } catch {
-          console.log('Error in getting cart count', error)
+          console.log('Error in getting cart count')
         }
       } 
     }
@@ -58,7 +57,7 @@ const ShopContextProvider = (props) => {
 
 
 const updateQuantity = (item, color, quantity) => {
-  let cartData = structuredClone(cartItems)
+  const cartData = structuredClone(cartItems)
   cartData[item][color] = quantity
   setCartItems(cartData)
 }
@@ -69,7 +68,7 @@ const updateQuantity = (item, color, quantity) => {
 const getCartAmount = () => {
   let totalAmount = 0
   for (const items in cartItems) {
-    let itemInfo = products.find((product) => product._id === items)
+    const itemInfo = products.find((product) => product._id === items)
     for (const item in cartItems[items]) {
       try {
         if (cartItems[items][item] > 0) {
@@ -93,11 +92,6 @@ useEffect(() => {
     setCurrentUser(JSON.parse(user))
   }
 },[])
-
-
-
-
-
     
     const value = {
       products,

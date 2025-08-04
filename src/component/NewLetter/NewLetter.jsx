@@ -1,4 +1,3 @@
-import React from 'react'
 import './newletter.css';
 import { FaFacebookF } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io";

@@ -1,4 +1,3 @@
-import React from 'react'
 import './productdescription.css'
 const ProductDescription = () => {
   return (

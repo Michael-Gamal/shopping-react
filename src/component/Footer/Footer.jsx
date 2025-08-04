@@ -1,4 +1,3 @@
-import React from 'react'
 import  FooterImage  from '../../assets/cards.png'
 import './footer.css'
 const Footer = () => {

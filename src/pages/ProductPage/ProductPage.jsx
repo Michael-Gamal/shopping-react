@@ -1,11 +1,9 @@
-import React, { useContext, useState,useEffect} from 'react'
+import { useContext, useState,useEffect} from 'react'
 import { useParams,useNavigate } from 'react-router-dom'
 import { ShopContext } from '../../ShopContext/ShopContext.jsx'
-import { FaStar } from "react-icons/fa6";
-import { FaRegStarHalfStroke } from "react-icons/fa6";
+import { FaStar,FaRegStarHalfStroke,FaTruckFast } from "react-icons/fa6";
 import { TbShoppingBagPlus } from "react-icons/tb";
 import { MdFavorite } from "react-icons/md";
-import { FaTruckFast } from "react-icons/fa6";
 import './productpage.css'
 import ProductDescription from '../../component/ProductDescription/ProductDescription.jsx';
 import ProductFeature from '../../component/ProductFeature/ProductFeature.jsx';
@@ -18,28 +16,14 @@ import Footer from '../../component/Footer/Footer.jsx';
 
 const ProductPage = () => {
   
-  const {products,addToCart,currentUser,setCurrentUser} = useContext(ShopContext)
+  const {products,addToCart,currentUser} = useContext(ShopContext)
   const {productId} = useParams()
   const [product, setProduct] = useState(null)
   const [image, setImage] = useState()
   const [color, setColor] = useState()
-  const navigate = useNavigate(); 
-
-
-
-  //   useEffect(() => {
-  //   console.log(color);
+  const navigate = useNavigate();     
     
-  // }, [color])
-  
-
-
-
-    // console.log(productId);
-    
-    
-    
-    const fetchProductData = async () => {
+    const fetchProductData = () => {
       const selectedProducut = products.find((item) => item._id === productId)
       
       if (selectedProducut) {
@@ -72,10 +56,10 @@ if (!product) {
         <div className="slider-product">
           <div className="side-images">
             <div className="small-image">
-              {product.image.map((item,i) => (
+              {product.image.map((item,src) => (
                 <img 
                   onClick={() =>  setImage(item)}
-                  key={i}
+                  key={src}
                   src={item }
                   alt="product Image" 
                 />
@@ -116,7 +100,7 @@ if (!product) {
                     {
                       item === color ? (
                         <ImCheckmark  style={{ color:`${item === "White" ? "#000" : "#fff "}`}} />
-                      ) : (<></>)
+                      ) : ("")
                     }
                   </li>
               ))}

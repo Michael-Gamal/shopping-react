@@ -1,4 +1,3 @@
-import React from 'react'
 import Hero from '../component/Hero/Hero.jsx'
 import Features from '../component/Features/Features.jsx'
 import NewArrivel from '../component/NewArrivel/NewArrivel.jsx'   

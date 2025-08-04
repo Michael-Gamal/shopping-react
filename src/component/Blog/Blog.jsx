@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react'
 import './blogComponent.css'
 import {blogs} from '../../assets/data' 
 const Blog = () => {
@@ -10,8 +9,8 @@ const Blog = () => {
     <section className="blog-section">
         <div className="blogs">
             { 
-                blogs.slice(0,4).map((blog, index) => (
-                    <div className="blog" key={index}>
+                blogs.slice(0,4).map((blog, title) => (
+                    <div className="blog" key={title}>
                         <div className="blog-image">
                             <img src={blog.image} alt={blog.title} />
                         </div>

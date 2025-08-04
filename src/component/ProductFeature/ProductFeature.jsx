@@ -1,4 +1,3 @@
-import React from 'react'
 import './productfeature.css'
 import { TbArrowBackUp } from "react-icons/tb";
 import { FaTruckFast } from "react-icons/fa6";
