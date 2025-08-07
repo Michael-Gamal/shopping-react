@@ -41,35 +41,32 @@ const ShopContextProvider = (props) => {
   const getCartCount = () => {
     let totalCount = 0
     for (const items in cartItems) {
-      for (const item in cartItems[items]) {
-        try {
-          if (cartItems[items][item]) {
-            totalCount += cartItems[items][item]
+      if (Object.prototype.hasOwnProperty.call(cartItems,items)) {
+        for (const item in cartItems[items]) {
+          try {
+            if (cartItems[items][item]) {
+              totalCount += cartItems[items][item]
+            }
+          } catch {
+            console.log('Error in getting cart count')
           }
-        } catch {
-          console.log('Error in getting cart count')
-        }
-      } 
+        } 
+      }
     }
     return totalCount
   }
-
-
-
 const updateQuantity = (item, color, quantity) => {
   const cartData = structuredClone(cartItems)
   cartData[item][color] = quantity
   setCartItems(cartData)
 }
-
-
-
 // Get total price of cart items
 const getCartAmount = () => {
   let totalAmount = 0
   for (const items in cartItems) {
     const itemInfo = products.find((product) => product._id === items)
-    for (const item in cartItems[items]) {
+    if (Object.prototype.hasOwnProperty.call(cartItems, items)) {
+          for (const item in cartItems[items]) {
       try {
         if (cartItems[items][item] > 0) {
           totalAmount += itemInfo.price * cartItems[items][item]
@@ -79,6 +76,8 @@ const getCartAmount = () => {
         console.log('Error in getting total price', error)
       }
     }
+    }
+
   }
   return totalAmount
 };

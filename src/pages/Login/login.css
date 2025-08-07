@@ -74,6 +74,25 @@
     background-color: transparent;
     cursor: pointer;
 }
+div {
+    position: relative;
+}
+div .error-message {
+    position: absolute;
+    bottom: -20px;
+    width: 100px;
+    left: 0;
+    color: red;
+    font-size: 12px;
+    white-space: nowrap;
+    text-decoration: none;
+}
+.login-page div.form {
+    position: relative;
+}
+.login-page .form .form .user-not-found {
+    position: absolute;
+}
 /* Media Query */
  /* X-Small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {  

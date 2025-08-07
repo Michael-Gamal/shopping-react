@@ -9,7 +9,6 @@ import Footer from '../../component/Footer/Footer'
 import Header from '../../component/Header'
 const Cart = () => {
 
-
   const {products, currency, cartItems, getCartCount,updateQuantity } = useContext(ShopContext)
   
 
@@ -21,10 +20,9 @@ const Cart = () => {
       const tempData = [];
       const initialQuantities = {};
       for (const items in cartItems) {
-          {console.log(items)}
-          for (const item in cartItems[items]) {          
-                      {console.log(item);
-          }
+        if (Object.prototype.hasOwnProperty.call(cartItems, items)) {
+            for (const item in cartItems[items]) {          
+
             if (cartItems[items][item] > 0) {
               tempData.push({
                 _id: items,
@@ -32,13 +30,11 @@ const Cart = () => {
                 quantity: cartItems[items][item],
               });
               initialQuantities[`${items}-${item}`] = cartItems[items][item];
-              {console.log(initialQuantities[`${items}-${item}`] = cartItems[items][item]);
-}
             } 
           }
+        }
       }
       setCartData(tempData);
-      // console.log('cartData', tempData);
       setQuantities(initialQuantities);
     }
   }, [cartItems, products])

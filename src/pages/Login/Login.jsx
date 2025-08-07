@@ -8,11 +8,15 @@ const Login = () => {
   const {setCurrentUser} = useContext(ShopContext)
   const navigate = useNavigate(); 
   const [userState, setUserState] = useState("Login")
+  const [vis, setVis] = useState("none")
+  const users = JSON.parse(localStorage.getItem('users')) || [];
+  let userFound ;
   const [formData, setFormData] = useState({
-      username: "",
-      email: "",
-      password: ""
+    username: "",
+    email: "",
+    password: ""
   });
+  const userExists = users.some( (user) => user.email === formData.email)
 const handleChange = (e) => {
   setFormData({
     ...formData,
@@ -21,17 +25,10 @@ const handleChange = (e) => {
 };
 const handleSubmit = (e) => {
   e.preventDefault();
-  const users = JSON.parse(localStorage.getItem('users')) || [];
 
 
 
   if (userState === "Sign Up") {
-    const userExists = users.some( (user) => user.email === formData.email)
-    if (userExists) {
-      alert("this user already recorded");
-      return;
-    }
-    
     users.push(formData)  
     localStorage.setItem('users', JSON.stringify(users));
     if (userState === "Sign Up") {
@@ -39,9 +36,8 @@ const handleSubmit = (e) => {
         setUserState("Login")
     }
   } else if (userState === "Login") {
-      setFormData({ username: "", email: "", password: "" });
 
-    const userFound = users.find(
+    userFound = users.find(
       (user) => 
         user.email === formData.email && 
         user.password === formData.password  
@@ -52,7 +48,7 @@ const handleSubmit = (e) => {
         setCurrentUser(userFound)
       navigate('/');
     } else {
-      alert("Email or password not correct")
+      setVis("flex")
     }
   }
 };
@@ -66,7 +62,7 @@ const handleSubmit = (e) => {
 
 
 
-        <div className="form">
+        <div className="form " >
             <h1>{userState}</h1>
             <form id = "registrationForm" action="" onSubmit={handleSubmit} >
                 {
@@ -82,15 +78,24 @@ const handleSubmit = (e) => {
                     </div>
                   ) : null
                 }
-                <div className="Email">
-                    <label htmlFor="">Email</label>
-                    <input 
-                        name='email' 
-                        type="email" 
-                        placeholder='Your Email' 
-                        onChange={handleChange}
-                      />
-                </div>
+
+                    {
+                    <div className="Email">
+                      <label htmlFor="">Email</label>
+                        <input 
+                          name='email' 
+                          type="email" 
+                          placeholder='Your Email' 
+                          onChange={handleChange}
+                        />
+                        {
+                          userExists && userState === "Sign Up" ? (
+                            <p className='error-message'>This email is already registered</p>
+                          ) : null  
+                        }
+                      </div>
+                    }
+                    
                 <div className="name">
                     <label htmlFor="">Password</label>
                     <input 
@@ -99,9 +104,11 @@ const handleSubmit = (e) => {
                       placeholder='Your Password' 
                       onChange={handleChange}
                     />
+                    <p className='user-not-found' style={{display: vis}}>password or Email not correct</p>
+                    
                 </div>
                 {
-                  userState === "Sign Up" ? (
+                  userState === "Sign Up" ?  (
                   <div className="button-sgin-up">
                     <button type='submit' className="sgin-up">{userState}</button>
                     <p>Already have an account ? <span onClick={() => setUserState("Login")} >Login</span> </p>

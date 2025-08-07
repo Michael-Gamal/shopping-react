@@ -136,8 +136,8 @@ const selectedCate = (category) => {
         <div className="items-container">
               {
               getPaginatedDataProduct().length > 0 ? (
-                getPaginatedDataProduct().map((products, index) => 
-                  <Item key={index}  products = {products} />
+                getPaginatedDataProduct().map((productsItems, index) => 
+                  <Item key={index}  products = {productsItems} />
                 )) : (
                   <p>
                     No products found for select filters

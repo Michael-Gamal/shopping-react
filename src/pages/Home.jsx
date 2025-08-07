@@ -1,7 +1,7 @@
 import Hero from '../component/Hero/Hero.jsx'
 import Features from '../component/Features/Features.jsx'
 import NewArrivel from '../component/NewArrivel/NewArrivel.jsx'   
-import PopularProducts from '../component/PopularProducts/PopularProducts.jsx'
+import PopularProductsSection from '../component/PopularProducts/PopularProductsSection.jsx'
 import Banner from '../component/Banner/Banner.jsx'
 import About from '../component/About/About.jsx'
 import Blog from '../component/Blog/Blog.jsx'
@@ -15,7 +15,7 @@ const Home = () => {
       <Hero />
       <Features />
       <NewArrivel /> 
-      <PopularProducts />
+      <PopularProductsSection />
       <Banner />
       <About />
       <Blog />

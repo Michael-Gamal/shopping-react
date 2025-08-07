@@ -4,7 +4,7 @@ import Title from '../Title/Title.jsx'
 import Item from '../Item/Item.jsx'
 import { ShopContext } from '../../ShopContext/ShopContext.jsx'
 
-const PopularProducts = () => {
+const PopularProductsSection = () => {
   const { products } = useContext(ShopContext)
 
     const [PopularProducts, setPopularProducts] = useState([])
@@ -39,4 +39,4 @@ const PopularProducts = () => {
   )
 }
 
-export default PopularProducts
+export default PopularProductsSection

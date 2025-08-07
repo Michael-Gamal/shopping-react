@@ -13,7 +13,6 @@ const RelatedProducts = ({product}) => {
     const data = products.filter(item => item.category === product.category);
 
     setRelatedProducts(data.slice(0, 5));  
-    // console.log(setRelatedProducts);
     
   },[products])
   return (
@@ -29,8 +28,8 @@ const RelatedProducts = ({product}) => {
         }}  />
         </div>
         <div className="items">
-                {relatedProducts.map((product) => (
-                    <Item key={product._id} products={product} />
+                {relatedProducts.map((productItem) => (
+                    <Item key={product._id} products={productItem} />
                 ))}
         </div>
     </section>
