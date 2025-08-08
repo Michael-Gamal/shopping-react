@@ -9,8 +9,8 @@ const Blog = () => {
     <section className="blog-section">
         <div className="blogs">
             { 
-                blogs.slice(0,4).map((blog, title) => (
-                    <div className="blog" key={title}>
+                blogs.slice(0,4).map((blog) => (
+                    <div className="blog" key={blog.title}>
                         <div className="blog-image">
                             <img src={blog.image} alt={blog.title} />
                         </div>

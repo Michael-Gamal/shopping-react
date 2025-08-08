@@ -56,11 +56,11 @@ if (!product) {
         <div className="slider-product">
           <div className="side-images">
             <div className="small-image">
-              {product.image.map((item,src) => (
+              {product.image.map((item) => (
                 <img 
                   onClick={() =>  setImage(item)}
-                  key={src}
-                  src={item }
+                  key={item.src}
+                  src={item}
                   alt="product Image" 
                 />
               ))
@@ -93,8 +93,8 @@ if (!product) {
           <div className="color-add-fav">
             <div className="colors">
               <ul> 
-              {product.colors.map((item,i) => (
-                <li key={i} 
+              {product.colors.map((item) => (
+                <li key={item.color} 
                   onClick={() => setColor(item)}
                   className="color " style={{backgroundColor:`${item}`}}>
                     {

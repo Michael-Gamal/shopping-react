@@ -1,5 +1,5 @@
 
-import headPhone from '../assets/headphones.png'
+import headPhone from './headphones.png'
 
 
 import img1 from './product_1.png'
@@ -52,14 +52,14 @@ import img41 from './product_41.png'
 import img42 from './product_42.png'
 
 // Blogs
-import blog1 from "../assets/blogs/blog-1.png"
-import blog2 from "../assets/blogs/blog-2.png"
-import blog3 from "../assets/blogs/blog-3.png"
-import blog4 from "../assets/blogs/blog-4.png"
-import blog5 from "../assets/blogs/blog-5.png"
-import blog6 from "../assets/blogs/blog-6.png"
-import blog7 from "../assets/blogs/blog-7.png"
-import blog8 from "../assets/blogs/blog-8.png"
+import blog1 from "./blogs/blog-1.png"
+import blog2 from "./blogs/blog-2.png"
+import blog3 from "./blogs/blog-3.png"
+import blog4 from "./blogs/blog-4.png"
+import blog5 from "./blogs/blog-5.png"
+import blog6 from "./blogs/blog-6.png"
+import blog7 from "./blogs/blog-7.png"
+import blog8 from "./blogs/blog-8.png"
 
 
 export const products = [

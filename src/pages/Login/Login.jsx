@@ -10,7 +10,6 @@ const Login = () => {
   const [userState, setUserState] = useState("Login")
   const [vis, setVis] = useState("none")
   const users = JSON.parse(localStorage.getItem('users')) || [];
-  let userFound ;
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -37,7 +36,7 @@ const handleSubmit = (e) => {
     }
   } else if (userState === "Login") {
 
-    userFound = users.find(
+    const userFound = users.find(
       (user) => 
         user.email === formData.email && 
         user.password === formData.password  
@@ -68,7 +67,7 @@ const handleSubmit = (e) => {
                 {
                   userState === "Sign Up" ? (
                     <div className="name">
-                      <label htmlFor="">Name</label>
+                      <label htmlFor="text">Name</label>
                       <input 
                         name="username" 
                         type="text" 
@@ -81,7 +80,7 @@ const handleSubmit = (e) => {
 
                     {
                     <div className="Email">
-                      <label htmlFor="">Email</label>
+                      <label htmlFor="email">Email</label>
                         <input 
                           name='email' 
                           type="email" 
@@ -97,7 +96,7 @@ const handleSubmit = (e) => {
                     }
                     
                 <div className="name">
-                    <label htmlFor="">Password</label>
+                    <label htmlFor="password">Password</label>
                     <input 
                       name='password' 
                       type="password" 
@@ -111,7 +110,7 @@ const handleSubmit = (e) => {
                   userState === "Sign Up" ?  (
                   <div className="button-sgin-up">
                     <button type='submit' className="sgin-up">{userState}</button>
-                    <p>Already have an account ? <span onClick={() => setUserState("Login")} >Login</span> </p>
+                    <p>Already have an account ? <span role='button' onClick={() => setUserState("Login")} >Login</span> </p>
                   </div>
 
 
@@ -120,7 +119,7 @@ const handleSubmit = (e) => {
                   <div className="button-sgin-up">
                     <button type='submit' className="sgin-up">{userState}</button>
                     <p>Forgot your password ?</p>
-                    <p>Don&apos;t have an account ? <span onClick={() => setUserState("Sign Up")}>Create an account</span> </p>
+                    <p>Don&apos;t have an account ? <span role='button' onClick={() => setUserState("Sign Up")}>Create an account</span> </p>
                   </div>
                   )
                 }

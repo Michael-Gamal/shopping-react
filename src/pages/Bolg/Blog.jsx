@@ -9,8 +9,8 @@ const Blog = () => {
         <Header />
               <div className="blogs">
             { 
-                blogs.map((blog, title) => (
-                    <div className="blog" key={title}>
+                blogs.map((blog) => (
+                    <div className="blog" key={blog.title}>
                         <div className="blog-image">
                             <img src={blog.image} alt={blog.title} />
                         </div>

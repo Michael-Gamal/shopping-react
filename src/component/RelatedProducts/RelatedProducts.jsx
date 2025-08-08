@@ -28,8 +28,8 @@ const RelatedProducts = ({product}) => {
         }}  />
         </div>
         <div className="items">
-                {relatedProducts.map((productItem) => (
-                    <Item key={product._id} products={productItem} />
+                {relatedProducts.map((productItem,productId) => (
+                    <Item key={productId} products={productItem} />
                 ))}
         </div>
     </section>

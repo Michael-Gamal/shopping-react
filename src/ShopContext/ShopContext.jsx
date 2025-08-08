@@ -43,14 +43,16 @@ const ShopContextProvider = (props) => {
     for (const items in cartItems) {
       if (Object.prototype.hasOwnProperty.call(cartItems,items)) {
         for (const item in cartItems[items]) {
-          try {
-            if (cartItems[items][item]) {
-              totalCount += cartItems[items][item]
-            }
-          } catch {
-            console.log('Error in getting cart count')
-          }
-        } 
+          if (Object.prototype.hasOwnProperty.call(cartItems,items)) {
+              try {
+                if (cartItems[items][item]) {
+                  totalCount += cartItems[items][item]
+                }
+              } catch {
+                console.log('Error in getting cart count')
+              }
+            } 
+          } 
       }
     }
     return totalCount
@@ -64,20 +66,22 @@ const updateQuantity = (item, color, quantity) => {
 const getCartAmount = () => {
   let totalAmount = 0
   for (const items in cartItems) {
-    const itemInfo = products.find((product) => product._id === items)
     if (Object.prototype.hasOwnProperty.call(cartItems, items)) {
-          for (const item in cartItems[items]) {
-      try {
-        if (cartItems[items][item] > 0) {
-          totalAmount += itemInfo.price * cartItems[items][item]
-          
+
+      const itemInfo = products.find((product) => product._id === items)
+      for (const item in cartItems[items]) {
+        if (Object.prototype.hasOwnProperty.call(cartItems, items)) {
+          try {
+            if (cartItems[items][item] > 0) {
+              totalAmount += itemInfo.price * cartItems[items][item]
+              
+            }
+          } catch (error) {
+            console.log('Error in getting total price', error)
+          }
         }
-      } catch (error) {
-        console.log('Error in getting total price', error)
       }
     }
-    }
-
   }
   return totalAmount
 };

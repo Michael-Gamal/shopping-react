@@ -61,7 +61,7 @@ const Header = () => {
           }
 
         </div>
-      <div onClick={() => {displaylinks === "" ? setDisplyLinks("flex") : setDisplyLinks("")}} className="burger-links" >
+      <div role='button' onClick={() => {displaylinks === "" ? setDisplyLinks("flex") : setDisplyLinks("")}} className="burger-links" >
         <span></span>
         <span></span>
         <span></span>
