@@ -14,7 +14,7 @@ const Hero = () => {
             </div>
             <div className="right">
                 <div className="content">
-                    <div className="img"></div>
+                    <div className="img" />
                     <button>Explore this product</button>
                 </div>
             </div>
