@@ -57,12 +57,14 @@ if (!product) {
           <div className="side-images">
             <div className="small-image">
               {product.image.map((item) => (
-                <img 
-                  onClick={() =>  setImage(item)}
-                  key={item.src}
-                  src={item}
-                  alt="product Image" 
-                />
+                <button onClick={() =>  setImage(item)}>
+                  <img 
+                    key={item.src}
+                    src={item}
+                    alt="product" 
+                  />
+                </button>
+
               ))
             }
             </div>
@@ -70,7 +72,7 @@ if (!product) {
           <div className="main-image">
                 <img 
                   src={!image ? product.image[0] : image }
-                  alt="product Image" 
+                  alt="product" 
                   className = ""
                 />
               
@@ -94,14 +96,16 @@ if (!product) {
             <div className="colors">
               <ul> 
               {product.colors.map((item) => (
-                <li key={item.color} 
-                  onClick={() => setColor(item)}
+                <li key={item.color}
                   className="color " style={{backgroundColor:`${item}`}}>
+                    <button onClick={() => setColor(item)}>
+                      
                     {
                       item === color ? (
                         <ImCheckmark  style={{ color:`${item === "White" ? "#000" : "#fff "}`}} />
                       ) : ("")
                     }
+                    </button>
                   </li>
               ))}
               </ul>

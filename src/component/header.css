@@ -105,6 +105,8 @@ header .burger-links  {
     align-items: center;
     gap: 5px;
     position: relative;
+    background: none;
+    border: none;
 }
 
 header .burger-links span {

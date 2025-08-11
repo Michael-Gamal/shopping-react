@@ -96,6 +96,7 @@ const selectedCate = (category) => {
     return filteredProducts.slice(startIndex, endIndex)     // 0-10 10-20 20-30 30-40 40-50
 
   }
+  
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage)
 
 
@@ -136,11 +137,11 @@ const selectedCate = (category) => {
         <div className="items-container">
               {
                 
-              getPaginatedDataProduct().length > 0 ? (
+                getPaginatedDataProduct().length > 0 ? (
                   
-                
-                getPaginatedDataProduct().map((productsItems, productId) => 
-                  <Item key={productId}  products = {productsItems} />
+                  
+                  getPaginatedDataProduct().map((productsItems) => 
+                    <Item key={productsItems._id}  products = {productsItems} />
                 )) : (
                   <p>
                     No products found for select filters

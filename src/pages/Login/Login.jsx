@@ -85,7 +85,7 @@ const handleSubmit = (e) => {
                           name='email' 
                           type="email" 
                           placeholder='Your Email' 
-                          onChange={handleChange}
+                          onChange={() => handleChange}
                         />
                         {
                           userExists && userState === "Sign Up" ? (
@@ -101,7 +101,7 @@ const handleSubmit = (e) => {
                       name='password' 
                       type="password" 
                       placeholder='Your Password' 
-                      onChange={handleChange}
+                      onChange={() => handleChange}
                     />
                     <p className='user-not-found' style={{display: vis}}>password or Email not correct</p>
                     
@@ -119,7 +119,7 @@ const handleSubmit = (e) => {
                   <div className="button-sgin-up">
                     <button type='submit' className="sgin-up">{userState}</button>
                     <p>Forgot your password ?</p>
-                    <p>Don&apos;t have an account ? <span role='button' onClick={() => setUserState("Sign Up")}>Create an account</span> </p>
+                    <p>Don&apos;t have an account ? <button role='button' onClick={() => setUserState("Sign Up")}>Create an account</button> </p>
                   </div>
                   )
                 }

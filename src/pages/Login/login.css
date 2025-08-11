@@ -69,7 +69,7 @@
         width: fit-content;
     border-bottom: 1px solid #000;
 }
-.login-page .login-container .form  div p span{
+.login-page .login-container .form  div p button{
     border: none;
     background-color: transparent;
     cursor: pointer;

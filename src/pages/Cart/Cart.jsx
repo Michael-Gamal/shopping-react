@@ -82,7 +82,7 @@ const decrement = (id, color) => {
                             return (
                                 <div key={item._id} className="product">
                                     <div className="image">
-                                        <img className='' src={productData.image[0]} alt="Product Image" />
+                                        <img className='' src={productData.image[0]} alt="Product" />
 
                                     </div>
                                     <div className="content">
