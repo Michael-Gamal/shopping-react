@@ -57,9 +57,8 @@ if (!product) {
           <div className="side-images">
             <div className="small-image">
               {product.image.map((item) => (
-                <button onClick={() =>  setImage(item)}>
+                <button key={item.src} onClick={() =>  setImage(item)}>
                   <img 
-                    key={item.src}
                     src={item}
                     alt="product" 
                   />

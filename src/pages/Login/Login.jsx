@@ -110,7 +110,7 @@ const handleSubmit = (e) => {
                   userState === "Sign Up" ?  (
                   <div className="button-sgin-up">
                     <button type='submit' className="sgin-up">{userState}</button>
-                    <p>Already have an account ? <span role='button' onClick={() => setUserState("Login")} >Login</span> </p>
+                    <p>Already have an account ? <button  onClick={() => setUserState("Login")} >Login</button> </p>
                   </div>
 
 
