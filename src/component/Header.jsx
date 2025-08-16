@@ -15,6 +15,13 @@ const Header = () => {
   const handleLogout = () => {
     localStorage.removeItem("currentUser");
     setCurrentUser(null)
+    console.log("User logged out successfully");
+    
+  }
+  const handleBargurIcons = () => {
+    displaylinks === "" ? setDisplyLinks("flex") : setDisplyLinks("")
+    console.log("burger icon clicked");
+    
   }
 
   return (
@@ -51,7 +58,7 @@ const Header = () => {
               <div  className="user-option" style={{
                 display: displayUser
               }}>
-                <button onClick={handleLogout}>Log Out</button>
+                <button onClick={() => handleLogout()}>Log Out</button>
                 <button>My favorut product</button>
               </div>
 
@@ -61,7 +68,7 @@ const Header = () => {
           }
 
         </div>
-      <button  onClick={() => {displaylinks === "" ? setDisplyLinks("flex") : setDisplyLinks("")}} className="burger-links" >
+      <button  onClick={() => handleBargurIcons()} className="burger-links" >
         <span />
         <span />
         <span />
