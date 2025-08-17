@@ -3,17 +3,12 @@ import { products} from '../assets/data.js'
 import { toast } from 'react-toastify'
 import {  useNavigate } from 'react-router-dom'
 export const ShopContext = createContext()
-
-
 const ShopContextProvider = (props) => {
-
   const [cartItems, setCartItems] = useState([])
   const [currentUser, setCurrentUser] = useState(null)
   const navigate = useNavigate()
   const currency = "$ "; 
   const delivery_charges = 10;
-
-
   const addToCart = (productId,color) => {
     if (!color) {
       toast.error("Please select a color")
@@ -21,16 +16,14 @@ const ShopContextProvider = (props) => {
     }else {
       toast.success("Added to your cart")
     }
-
     const cartData = structuredClone(cartItems)
-    if (cartData[productId]) {
-
-      if (cartData[productId][color]) {
-        cartData[productId][color] += 1
+    const cartProductColor = cartData[productId]
+    if (cartProductColor) {
+      if (cartProductColor[color]) {
+        cartProductColor[color] += 1
       }else {
-        cartData[productId][color] = 1
+        cartProductColor[color] = 1
       }
-      
     }else {
       cartData[productId] = {}
       cartData[productId][color] = 1
@@ -41,25 +34,23 @@ const ShopContextProvider = (props) => {
   const getCartCount = () => {
     let totalCount = 0
     for (const items in cartItems) {
+      const cartProductColor =cartItems[items];
       if (Object.prototype.hasOwnProperty.call(cartItems,items)) {
-        for (const item in cartItems[items]) {
+        for (const item in cartProductColor) {
           if (Object.prototype.hasOwnProperty.call(cartItems,items)) {
               try {
-                if (cartItems[items][item]) {
-                  totalCount += cartItems[items][item]
-                }
-              } catch {
-                console.log('Error in getting cart count')
-              }
+                if (cartProductColor[item]) { totalCount += cartProductColor[item] }
+              } catch { console.log('Error in getting cart count')  }
             } 
-          } 
+        } 
       }
     }
     return totalCount
   }
 const updateQuantity = (item, color, quantity) => {
   const cartData = structuredClone(cartItems)
-  cartData[item][color] = quantity
+  const cartProduct = cartData[item]
+  cartProduct[color] = quantity
   setCartItems(cartData)
 }
 // Get total price of cart items
@@ -67,13 +58,13 @@ const getCartAmount = () => {
   let totalAmount = 0
   for (const items in cartItems) {
     if (Object.prototype.hasOwnProperty.call(cartItems, items)) {
-
       const itemInfo = products.find((product) => product._id === items)
       for (const item in cartItems[items]) {
+          const cartProductColor = cartItems[items][item];
         if (Object.prototype.hasOwnProperty.call(cartItems, items)) {
           try {
-            if (cartItems[items][item] > 0) {
-              totalAmount += itemInfo.price * cartItems[items][item]
+            if (cartProductColor > 0) {
+              totalAmount += itemInfo.price * cartProductColor
               
             }
           } catch (error) {

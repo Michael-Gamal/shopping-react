@@ -21,15 +21,17 @@ const Cart = () => {
       const initialQuantities = {};
       for (const items in cartItems) {
         if (Object.prototype.hasOwnProperty.call(cartItems, items)) {
-            for (const item in cartItems[items]) {          
-
-            if (cartItems[items][item] > 0) {
+            const cartItem = cartItems[items];
+            for (const item in cartItem) {          
+            const productColor = cartItems[items][item];
+            if (productColor > 0) {
               tempData.push({
                 _id: items,
                 color: item,
                 quantity: cartItems[items][item],
               });
-              initialQuantities[`${items}-${item}`] = cartItems[items][item];
+              const key = `${items}-${item}`;
+              initialQuantities[key] = cartItems[items][item];
             } 
           }
         }
@@ -41,15 +43,18 @@ const Cart = () => {
 
 const increment = (id, color) => {
   const key = `${id}-${color}`;
-  const newValue = quantities[key] + 1;
+  const currentQuantity = quantities[key] || 0;
+  const newValue = currentQuantity + 1;
   setQuantities((prev) => ({ ...prev, [key]: newValue }));
   updateQuantity(id, color, newValue);
 }
 
 const decrement = (id, color) => {
   const key = `${id}-${color}`;
-  if (quantities[key] > 1) {
-    const newValue = quantities[key] - 1;
+    const currentQuantity = quantities[key] || 0;
+
+  if (currentQuantity > 1) {
+    const newValue = currentQuantity - 1;
     setQuantities((prev) => ({ ...prev, [key]: newValue }));
     updateQuantity(id, color, newValue);
   }
@@ -79,11 +84,11 @@ const decrement = (id, color) => {
                         cartData.map((item) => {
                             const productData = products.find((product) => product._id === item._id);
                             const key = `${item._id}-${item.color}`;
+                            const quantity = quantities[key] || 0;
                             return (
                                 <div key={item._id} className="product">
                                     <div className="image">
                                         <img className='' src={productData.image[0]} alt="Product" />
-
                                     </div>
                                     <div className="content">
                                         <div className="name-delate-product">
@@ -100,7 +105,7 @@ const decrement = (id, color) => {
                                                 <button onClick={() => decrement(item._id,item.color)} className=''>
                                                     <FaMinus className='minus icon' />
                                                 </button>
-                                                <p className=''>{quantities[key]}</p>
+                                                <p>{quantity}</p>
                                                 <button onClick={() => increment(item._id, item.color)} className=''>
                                                     <FaPlus className='plus icon' />
                                                 </button>
