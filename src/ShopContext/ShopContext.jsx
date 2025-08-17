@@ -37,11 +37,8 @@ const ShopContextProvider = (props) => {
       const cartProductColor =cartItems[items];
       if (Object.prototype.hasOwnProperty.call(cartItems,items)) {
         for (const item in cartProductColor) {
-          if (Object.prototype.hasOwnProperty.call(cartItems,items)) {
-              try {
-                if (cartProductColor[item]) { totalCount += cartProductColor[item] }
-              } catch { console.log('Error in getting cart count')  }
-            } 
+              try { if (cartProductColor[item]) { totalCount += cartProductColor[item] }
+          } catch { console.log('Error in getting cart count')  }
         } 
       }
     }
