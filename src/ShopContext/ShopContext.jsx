@@ -1,105 +1,116 @@
 import { useEffect, useState } from 'react';
-import { createContext } from 'react';
 import { products} from '../assets/data.js'
 import { toast } from 'react-toastify'
 import {  useNavigate } from 'react-router-dom'
-export const ShopContext = createContext();
+import { ShopContext } from './ShopContextInstance'
+import { sanitizeKey, safeHasOwn } from './validation'
 
 const ShopContextProvider = (props) => {
-  const [cartItems, setCartItems] = useState([])
+  const [cartItems, setCartItems] = useState({})
   const [currentUser, setCurrentUser] = useState(null)
   const navigate = useNavigate()
-  const currency = "$ "; 
+  const currency = "$ ";
   const delivery_charges = 10;
-  const addToCart = (productId,color) => {
+  
+  const addToCart = (productId, color) => {
     if (!color) {
-      toast.error("Please select a color")
-      return
-    }else {
-      toast.success("Added to your cart")
+      toast.error("Please select a color");
+      return;
     }
-    const cartData = structuredClone(cartItems)
-    let cartProductColor = cartData[productId]
-    if (cartProductColor) {
-      if (cartProductColor[color]) {
-        cartProductColor[color] += 1
-      }else {
-        cartProductColor[color] = 1
+    
+    toast.success("Added to your cart");
+    const cartData = structuredClone(cartItems);
+    const safeProductId = sanitizeKey(productId);
+    const safeColor = sanitizeKey(color);
+
+    if (safeHasOwn(cartData, safeProductId)) {
+      const cartProduct = cartData[safeProductId];
+      if (safeHasOwn(cartProduct, safeColor)) {
+        cartProduct[safeColor] += 1;
+      } else {
+        cartProduct[safeColor] = 1;
       }
-    }else {
-      cartData[productId] = {}
-      cartData[productId][color] = 1
+    } else {
+      cartData[safeProductId] = { [safeColor]: 1 };
     }
-    setCartItems(cartData)
+    setCartItems(cartData);
   }
-  // Getting Total Cart Count
+
   const getCartCount = () => {
-    let totalCount = 0
+    let totalCount = 0;
     for (const items in cartItems) {
-      let cartProductColor =cartItems[items];
-      if (Object.prototype.hasOwnProperty.call(cartItems,items)) {
-        for (const item in cartProductColor) {
-              try { if (cartProductColor[item]) { totalCount += cartProductColor[item] }
-          } catch { console.log('Error in getting cart count')  }
-        } 
+      if (safeHasOwn(cartItems, items)) {
+        const cartProduct = cartItems[items];
+        for (const item in cartProduct) {
+          if (safeHasOwn(cartProduct, item)) {
+            totalCount += cartProduct[item];
+          }
+        }
       }
     }
-    return totalCount
+    return totalCount;
   }
-const updateQuantity = (item, color, quantity) => {
-  const cartData = structuredClone(cartItems)
-  let cartProduct = cartData[item]
-  cartProduct[color] = quantity
-  setCartItems(cartData)
-}
-// Get total price of cart items
+
+  const updateQuantity = (item, color, quantity) => {
+    const cartData = structuredClone(cartItems);
+    const safeItem = sanitizeKey(item);
+    const safeColor = sanitizeKey(color);
+
+    if (!safeHasOwn(cartData, safeItem)) {
+      cartData[safeItem] = {};
+    }
+    cartData[safeItem][safeColor] = quantity;
+    setCartItems(cartData);
+  }
 const getCartAmount = () => {
-  let totalAmount = 0
+  let totalAmount = 0;
   for (const items in cartItems) {
-    if (Object.prototype.hasOwnProperty.call(cartItems, items)) {
-      const itemInfo = products.find((product) => product._id === items)
-      for (const item in cartItems[items]) {
-          let cartProductColor = cartItems[items][item];
-        if (Object.prototype.hasOwnProperty.call(cartItems, items)) {
-          try {
-            if (cartProductColor > 0) {
-              totalAmount += itemInfo.price * cartProductColor
-              
-            }
-          } catch (error) {
-            console.log('Error in getting total price', error)
+    if (safeHasOwn(cartItems, items)) {
+      const safeItems = sanitizeKey(items);
+      const itemInfo = products.find((product) => {
+        const safeProductId = sanitizeKey(product._id);
+        return safeProductId === safeItems;
+      });
+      
+      if (itemInfo) {
+        const cartProduct = cartItems[items];
+        for (const item in cartProduct) {
+          if (safeHasOwn(cartProduct, item)) {
+            const quantity = cartProduct[item];
+            totalAmount += itemInfo.price * quantity;
           }
         }
       }
     }
   }
-  return totalAmount
+  return totalAmount;
 };
-// login user
 useEffect(() => {
   const user = localStorage.getItem("currentUser");
   if (user) {
-    setCurrentUser(JSON.parse(user))
+    setCurrentUser(JSON.parse(user));
   }
-},[])  
-    const value = {
-      products,
-      addToCart,
-      getCartCount,
-      cartItems,
-      navigate,
-      currency,
-      delivery_charges,
-      updateQuantity,
-      getCartAmount,
-      currentUser,
-      setCurrentUser
-    }
-  return (
-    <ShopContext.Provider value={value}> 
-      {props.children}
-    </ShopContext.Provider>
-  )
+}, []);
+
+const value = {
+  products,
+  addToCart,
+  getCartCount,
+  cartItems,
+  navigate,
+  currency,
+  delivery_charges,
+  updateQuantity,
+  getCartAmount,
+  currentUser,
+  setCurrentUser
+};
+
+return (
+  <ShopContext.Provider value={value}>
+    {props.children}
+  </ShopContext.Provider>
+);
 }
 
 export default ShopContextProvider

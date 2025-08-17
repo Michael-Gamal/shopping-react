@@ -7,6 +7,7 @@ import { FaMinus, FaPlus } from 'react-icons/fa6'
 import CartTotal from '../../component/CartTotal/CartTotal'
 import Footer from '../../component/Footer/Footer'
 import Header from '../../component/Header'
+import { isSafeInput, sanitizeKey, safeHasOwn } from '../../utils/validation'
 const Cart = () => {
 
   const {products, currency, cartItems, getCartCount,updateQuantity } = useContext(ShopContext)
@@ -20,29 +21,23 @@ const Cart = () => {
       const tempData = [];
       const initialQuantities = {};
       for (const items in cartItems) {
-        if (Object.prototype.hasOwnProperty.call(cartItems, items)) {
-            let cartItem = cartItems[items];
-            for (const item in cartItem) {          
-            let productColor = cartItems[items][item];
-            // Validate productColor is a positive integer
-            if (typeof productColor === 'number' && productColor > 0) {
-              // Sanitize input keys
-              const sanitizedItems = String(items).replace(/[^a-zA-Z0-9_-]/g, '');
-              const sanitizedItem = String(item).replace(/[^a-zA-Z0-9_-]/g, '');
+        if (safeHasOwn(cartItems, items)) {
+          const cartItem = cartItems[items];
+          for (const item in cartItem) {
+            if (safeHasOwn(cartItem, item)) {
+              const quantityValue = cartItem[item];
               
-              // Safely access nested properties
-              if (Object.hasOwn(cartItems, sanitizedItems) &&
-                  Object.hasOwn(cartItems[sanitizedItems], sanitizedItem)) {
-
-                const quantity = cartItems[sanitizedItems][sanitizedItem];
+              if (isSafeInput(quantityValue) && quantityValue > 0) {
+                const safeItems = sanitizeKey(items);
+                const safeItem = sanitizeKey(item);
+                
                 tempData.push({
-                  _id: sanitizedItems,
-                  color: sanitizedItem,
-                  quantity: quantity,
+                  _id: safeItems,
+                  color: safeItem,
+                  quantity: quantityValue,
                 });
                 
-                // Use safe key format with sanitized values
-                initialQuantities[`${sanitizedItems}-${sanitizedItem}`] = quantity ;
+                initialQuantities[`${safeItems}-${safeItem}`] = quantityValue;
               }
             }
           }
