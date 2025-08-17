@@ -544,7 +544,6 @@ export const products = [
         popular: false
     }
 ];
-
 // Blogs
 export const blogs = [
     { title: "Top Shopping Tips for Smart Buyers", category: "Cameras", image: blog1 },
