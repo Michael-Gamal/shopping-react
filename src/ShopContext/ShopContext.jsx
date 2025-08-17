@@ -17,7 +17,7 @@ const ShopContextProvider = (props) => {
       toast.success("Added to your cart")
     }
     const cartData = structuredClone(cartItems)
-    const cartProductColor = cartData[productId]
+    let cartProductColor = cartData[productId]
     if (cartProductColor) {
       if (cartProductColor[color]) {
         cartProductColor[color] += 1
@@ -34,7 +34,7 @@ const ShopContextProvider = (props) => {
   const getCartCount = () => {
     let totalCount = 0
     for (const items in cartItems) {
-      const cartProductColor =cartItems[items];
+      let cartProductColor =cartItems[items];
       if (Object.prototype.hasOwnProperty.call(cartItems,items)) {
         for (const item in cartProductColor) {
               try { if (cartProductColor[item]) { totalCount += cartProductColor[item] }
@@ -46,7 +46,7 @@ const ShopContextProvider = (props) => {
   }
 const updateQuantity = (item, color, quantity) => {
   const cartData = structuredClone(cartItems)
-  const cartProduct = cartData[item]
+  let cartProduct = cartData[item]
   cartProduct[color] = quantity
   setCartItems(cartData)
 }
@@ -57,7 +57,7 @@ const getCartAmount = () => {
     if (Object.prototype.hasOwnProperty.call(cartItems, items)) {
       const itemInfo = products.find((product) => product._id === items)
       for (const item in cartItems[items]) {
-          const cartProductColor = cartItems[items][item];
+          let cartProductColor = cartItems[items][item];
         if (Object.prototype.hasOwnProperty.call(cartItems, items)) {
           try {
             if (cartProductColor > 0) {

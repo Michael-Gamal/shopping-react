@@ -21,16 +21,16 @@ const Cart = () => {
       const initialQuantities = {};
       for (const items in cartItems) {
         if (Object.prototype.hasOwnProperty.call(cartItems, items)) {
-            const cartItem = cartItems[items];
+            let cartItem = cartItems[items];
             for (const item in cartItem) {          
-            const productColor = cartItems[items][item];
+            let productColor = cartItems[items][item];
             if (productColor > 0) {
               tempData.push({
                 _id: items,
                 color: item,
                 quantity: cartItems[items][item],
               });
-              const key = `${items}-${item}`;
+              let key = `${items}-${item}`;
               initialQuantities[key] = cartItems[items][item];
             } 
           }
@@ -50,8 +50,8 @@ const increment = (id, color) => {
 }
 
 const decrement = (id, color) => {
-  const key = `${id}-${color}`;
-    const currentQuantity = quantities[key] || 0;
+  let key = `${id}-${color}`;
+    let currentQuantity = quantities[key] || 0;
 
   if (currentQuantity > 1) {
     const newValue = currentQuantity - 1;
@@ -82,9 +82,9 @@ const decrement = (id, color) => {
                 <div className="products">
                     {
                         cartData.map((item) => {
-                            const productData = products.find((product) => product._id === item._id);
-                            const key = `${item._id}-${item.color}`;
-                            const quantity = quantities[key] || 0;
+                            let productData = products.find((product) => product._id === item._id);
+                            let key = `${item._id}-${item.color}`;
+                            let quantity = quantities[key] || 0;
                             return (
                                 <div key={item._id} className="product">
                                     <div className="image">
