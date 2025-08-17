@@ -76,17 +76,13 @@ const getCartAmount = () => {
   }
   return totalAmount
 };
-
-
-
 // login user
 useEffect(() => {
   const user = localStorage.getItem("currentUser");
   if (user) {
     setCurrentUser(JSON.parse(user))
   }
-},[])
-    
+},[])  
     const value = {
       products,
       addToCart,
