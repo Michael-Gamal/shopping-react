@@ -2,7 +2,7 @@ import {useContext,useEffect,useState} from 'react'
 import './relatedproduct.css'
 import Title from '../Title/Title.jsx'
 import Item from '../Item/Item.jsx'
-import { ShopContext } from '../../ShopContext/ShopContext.jsx'
+import { ShopContext } from '../../ShopContext/ShopContextInstance.jsx'
 
 const RelatedProducts = ({product}) => {
     

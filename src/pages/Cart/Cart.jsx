@@ -1,7 +1,7 @@
 import {useContext, useEffect, useState} from 'react'
 import './cart.css'
 import Title from '../../component/Title/Title'
-import { ShopContext } from '../../ShopContext/ShopContext'
+import { ShopContext } from '../../ShopContext/ShopContextInstance'
 import {  FaRegWindowClose } from 'react-icons/fa'
 import { FaMinus, FaPlus } from 'react-icons/fa6'
 import CartTotal from '../../component/CartTotal/CartTotal'

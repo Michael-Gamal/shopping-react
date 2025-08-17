@@ -1,7 +1,7 @@
 import {useEffect, useContext,useState} from 'react'
 import './collection.css'
 import { IoIosSearch } from "react-icons/io";
-import { ShopContext } from '../../ShopContext/ShopContext.jsx'
+import { ShopContext } from '../../ShopContext/ShopContextInstance.jsx'
 import Item from '../../component/Item/Item';
 import Footer from '../../component/Footer/Footer.jsx';
 import Header from '../../component/Header.jsx';

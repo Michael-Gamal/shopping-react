@@ -3,7 +3,7 @@ import { products} from '../assets/data.js'
 import { toast } from 'react-toastify'
 import {  useNavigate } from 'react-router-dom'
 import { ShopContext } from './ShopContextInstance'
-import { sanitizeKey, safeHasOwn } from './validation'
+import { sanitizeKey, safeHasOwn } from '../utils/validation'
 
 const ShopContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({})

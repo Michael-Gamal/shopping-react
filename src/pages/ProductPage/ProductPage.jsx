@@ -1,6 +1,6 @@
 import { useContext, useState,useEffect} from 'react'
 import { useParams,useNavigate } from 'react-router-dom'
-import { ShopContext } from '../../ShopContext/ShopContext.jsx'
+import { ShopContext } from '../../ShopContext/ShopContextInstance.jsx'
 import { FaStar,FaRegStarHalfStroke,FaTruckFast } from "react-icons/fa6";
 import { TbShoppingBagPlus } from "react-icons/tb";
 import { MdFavorite } from "react-icons/md";

@@ -1,7 +1,7 @@
 import { useState,useContext } from 'react'
 import HeadphoneImage from '../../assets/headphones.png'
 import { useNavigate } from 'react-router-dom' // Add this import
-import {ShopContext} from '../../ShopContext/ShopContext.jsx'
+import {ShopContext} from '../../ShopContext/ShopContextInstance'
 import './login.css'
 const Login = () => {
 

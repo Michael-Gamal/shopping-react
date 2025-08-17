@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import './carttotal.css'
 import Title from "../Title/Title"
-import { ShopContext } from '../../ShopContext/ShopContext'
+import { ShopContext } from '../../ShopContext/ShopContextInstance'
 import { Link } from 'react-router-dom'
 const CartTotal = () => {
     const {getCartAmount, currency, delivery_charges} = useContext(ShopContext)

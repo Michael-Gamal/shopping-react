@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules' ;
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { ShopContext } from '../../ShopContext/ShopContext.jsx'
+import { ShopContext } from '../../ShopContext/ShopContextInstance.jsx'
 import Item from '../Item/Item.jsx'
 import './newarrivel.css'
 const NewArrivel = () => {
