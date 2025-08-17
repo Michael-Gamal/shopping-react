@@ -24,16 +24,27 @@ const Cart = () => {
             let cartItem = cartItems[items];
             for (const item in cartItem) {          
             let productColor = cartItems[items][item];
-            if (productColor > 0) {
-              tempData.push({
-                _id: items,
-                color: item,
-                quantity: cartItems[items][item],
-              });
-              let key = `${items}-${item}`;
-              key.type() === 'string' || cartItems[items][item].type() === 'number' ? key = `${items}-${item}` : key = `TT` ;
-              initialQuantities[key] = cartItems[items][item];
-            } 
+            // Validate productColor is a positive integer
+            if (typeof productColor === 'number' && productColor > 0) {
+              // Sanitize input keys
+              const sanitizedItems = String(items).replace(/[^a-zA-Z0-9_-]/g, '');
+              const sanitizedItem = String(item).replace(/[^a-zA-Z0-9_-]/g, '');
+              
+              // Safely access nested properties
+              if (Object.hasOwn(cartItems, sanitizedItems) &&
+                  Object.hasOwn(cartItems[sanitizedItems], sanitizedItem)) {
+                
+                const quantity = cartItems[sanitizedItems][sanitizedItem];
+                tempData.push({
+                  _id: sanitizedItems,
+                  color: sanitizedItem,
+                  quantity: quantity,
+                });
+                
+                // Use safe key format with sanitized values
+                initialQuantities[`${sanitizedItems}-${sanitizedItem}`] = quantity ;
+              }
+            }
           }
         }
       }

@@ -1,8 +1,10 @@
-import  {createContext, useEffect,useState} from 'react'
+import { useEffect, useState } from 'react';
+import { createContext } from 'react';
 import { products} from '../assets/data.js'
 import { toast } from 'react-toastify'
 import {  useNavigate } from 'react-router-dom'
-export const ShopContext = createContext()
+export const ShopContext = createContext();
+
 const ShopContextProvider = (props) => {
   const [cartItems, setCartItems] = useState([])
   const [currentUser, setCurrentUser] = useState(null)
