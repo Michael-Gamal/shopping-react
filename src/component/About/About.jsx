@@ -1,11 +1,8 @@
 import './aboutus.css'
 import Title from '../Title/Title'
-
-import TestimonialImage from '../../assets/testimonial.png' 
-import { FaQuoteLeft,FaQuoteRight } from "react-icons/fa6";
-import AboutImage from '../../assets/about.png'
-import { RiSecurePaymentFill } from "react-icons/ri";
-
+import Testimonial from './Testimonial.jsx'
+import Trending from './Trending.jsx';
+import AboutusFueaures from './AboutusFueaures.jsx';
 const About = () => {
   return (
     <section className="about">
@@ -21,35 +18,9 @@ const About = () => {
                 }}  />
 
             </div>
-            <div className="contant">
-                <div className="caracter">
-                    <div className="image">
-                        <img src={TestimonialImage} alt="Testimonial-Image" />
-                    </div>
-                    <p className="name">Jhon Deo</p>
-                    <span className="jop-title">CEO At TeckStack</span>
-                </div>
-                <div className="desc">
-                    <p>
-                        <FaQuoteLeft />
-                        Lorem ipsum dolor sit amet, consectetur  elit. Possimus dolores tenetur eaque unde sequi
-                        illo maxime accusantium corrupti quam debitis debitis architecto  architecto
-                        <FaQuoteRight />
-
-                    </p>
-                </div>
-            </div>
+                <Testimonial />
         </div>
-        <div className="trending">  
-            <div className="image">
-                <img src={AboutImage} alt="" />
-                <div className="box-center">
-                    <p>Top View In this <br /> Week</p>
-                    <h2>Trending</h2>
-                </div>
-
-            </div>
-        </div>
+            <Trending />
         <div className="about-us">
             <div className="title">
                 <Title title1 = "About" title2 = "Us" style1= {{
@@ -63,56 +34,7 @@ const About = () => {
 
             </div>    
             <div className="contant">
-                <div className="box">
-                    <div className="icon">
-                        <RiSecurePaymentFill />
-
-                    </div>
-                    <div className="text">
-                        <h3>Fast & Secure</h3>
-                        <p>Optimized preformance</p>
-                    </div>
-                </div>
-                                <div className="box">
-                    <div className="icon">
-                        <RiSecurePaymentFill />
-
-                    </div>
-                    <div className="text">
-                        <h3>Fast & Secure</h3>
-                        <p>Optimized preformance</p>
-                    </div>
-                </div>
-                                <div className="box">
-                    <div className="icon">
-                        <RiSecurePaymentFill />
-
-                    </div>
-                    <div className="text">
-                        <h3>Fast & Secure</h3>
-                        <p>Optimized preformance</p>
-                    </div>
-                </div>
-                                <div className="box">
-                    <div className="icon">
-                        <RiSecurePaymentFill />
-
-                    </div>
-                    <div className="text">
-                        <h3>Fast & Secure</h3>
-                        <p>Optimized preformance</p>
-                    </div>
-                </div>
-                                <div className="box">
-                    <div className="icon">
-                        <RiSecurePaymentFill />
-
-                    </div>
-                    <div className="text">
-                        <h3>Fast & Secure</h3>
-                        <p>Optimized preformance</p>
-                    </div>
-                </div>
+                <AboutusFueaures />
             </div>
         </div>
     </section>

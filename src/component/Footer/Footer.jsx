@@ -1,5 +1,6 @@
 import  FooterImage  from '../../assets/cards.png'
 import './footer.css'
+import FooterLinks from './FooterLinks'
 const Footer = () => {
   return (
     <footer>
@@ -16,43 +17,12 @@ const Footer = () => {
           </div>
         </div>
         <div className="right">
-          <div className="links">
-            <div className="link-column">
-              <h3>Customer Service</h3>
-              <ul>
-                <li>Help Center</li>
-                <li> Payment methods</li>
-                <li>Contact</li>
-                <li>Shopping status</li>
-                <li>Complaints</li>
-              </ul>
-            </div>
-                        <div className="link-column">
-              <h3>Customer Service</h3>
-              <ul>
-                <li>Help Center</li>
-                <li> Payment methods</li>
-                <li>Contact</li>
-                <li>Shopping status</li>
-                <li>Complaints</li>
-              </ul>
-            </div>
-                        <div className="link-column">
-              <h3>Customer Service</h3>
-              <ul>
-                <li>Help Center</li>
-                <li> Payment methods</li>
-                <li>Contact</li>
-                <li>Shopping status</li>
-                <li>Complaints</li>
-              </ul>
-            </div>
-          </div>
+          <FooterLinks />
         </div>
       </div>
       <div className="copyright">
         <p>© 2023 Shopanza</p>
-        <p> All rights reserved.</p>
+<p> All rights reserved.</p>
       </div>
     </footer>
   )

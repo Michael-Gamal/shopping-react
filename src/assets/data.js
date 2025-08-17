@@ -1,7 +1,5 @@
-
+// Importing images for products 
 import headPhone from './headphones.png'
-
-
 import img1 from './product_1.png'
 import img2_1 from './product_2_1.png'
 import img2_2 from './product_2_2.png'
@@ -50,8 +48,7 @@ import img39 from './product_39.png'
 import img40 from './product_40.png'
 import img41 from './product_41.png'
 import img42 from './product_42.png'
-
-// Blogs
+// Importing for blogs
 import blog1 from "./blogs/blog-1.png"
 import blog2 from "./blogs/blog-2.png"
 import blog3 from "./blogs/blog-3.png"
@@ -61,7 +58,7 @@ import blog6 from "./blogs/blog-6.png"
 import blog7 from "./blogs/blog-7.png"
 import blog8 from "./blogs/blog-8.png"
 
-
+// Exporting products and blogs data
 export const products = [
     // Headphones (ID 1 to 7)
     {
@@ -548,7 +545,7 @@ export const products = [
     }
 ];
 
-
+// Blogs
 export const blogs = [
     { title: "Top Shopping Tips for Smart Buyers", category: "Cameras", image: blog1 },
     { title: "Latest Trends in Online Shopping 2024", category: "Mobiles", image: blog2 },
