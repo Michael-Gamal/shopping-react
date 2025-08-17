@@ -30,9 +30,7 @@ const Cart = () => {
                 color: item,
                 quantity: cartItems[items][item],
               });
-
               let key = `${items}-${item}`;
-              // console.log(`Key: ${key}, Quantity: ${cartItems[items][item]}`);
               key.type() === 'string' || cartItems[items][item].type() === 'number' ? key = `${items}-${item}` : key = `TT` ;
               initialQuantities[key] = cartItems[items][item];
             } 
