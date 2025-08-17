@@ -33,7 +33,7 @@ const Cart = () => {
               // Safely access nested properties
               if (Object.hasOwn(cartItems, sanitizedItems) &&
                   Object.hasOwn(cartItems[sanitizedItems], sanitizedItem)) {
-                
+
                 const quantity = cartItems[sanitizedItems][sanitizedItem];
                 tempData.push({
                   _id: sanitizedItems,
@@ -52,7 +52,6 @@ const Cart = () => {
       setQuantities(initialQuantities);
     }
   }, [cartItems, products])
-
 const increment = (id, color) => {
   const key = `${id}-${color}`;
   const currentQuantity = quantities[key] || 0;
