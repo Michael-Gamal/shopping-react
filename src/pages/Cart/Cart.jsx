@@ -11,7 +11,6 @@ import { isSafeInput, sanitizeKey, safeHasOwn } from '../../utils/validation'
 const Cart = () => {
 
   const {products, currency, cartItems, getCartCount,updateQuantity } = useContext(ShopContext)
-  
 
   const [ cartData, setCartData ] = useState([])
   const [ quantities, setQuantities ] = useState({})
@@ -30,13 +29,11 @@ const Cart = () => {
               if (isSafeInput(quantityValue) && quantityValue > 0) {
                 const safeItems = sanitizeKey(items);
                 const safeItem = sanitizeKey(item);
-                
                 tempData.push({
                   _id: safeItems,
                   color: safeItem,
                   quantity: quantityValue,
                 });
-                
                 initialQuantities[`${safeItems}-${safeItem}`] = quantityValue;
               }
             }
