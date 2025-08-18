@@ -11,7 +11,6 @@ const ShopContextProvider = (props) => {
   const navigate = useNavigate()
   const currency = "$ ";
   const delivery_charges = 10;
-  
   const addToCart = (productId, color) => {
     if (!color) {
       toast.error("Please select a color");

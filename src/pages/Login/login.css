@@ -93,8 +93,6 @@ div .error-message {
 .login-page .form .form .user-not-found {
     position: absolute;
 }
-/* Media Query */
- /* X-Small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {  
     .login-page .login-container .image{
         display: none;

@@ -1,5 +1,4 @@
 .place-order-page {
-    /* padding: 50px 0; */
     background-color: rgb(244 244 247);
 } 
 .place-order-page .content-page {
@@ -38,14 +37,12 @@
     flex: .5;
 }
 .place-order-page .content-page .left-side form .inputs-container .width-100 input{
-    /* flex: 1; */
     width: 100%;
     flex-wrap: wrap;
 }
 .place-order-page .cart-amount .content {
     flex-direction: column;
     align-items: start;
-
 }
 .place-order-page .content-page .cart-amount {
     display: flex;
@@ -55,7 +52,6 @@
     padding: 20px 20px;
     flex: 1;
 }
-
 .place-order-page .cart-amount .content .details {
     width: 100%;
 }
@@ -102,7 +98,6 @@
     color: #fff;
 }
 @media (max-width: 768px) { 
-    
 .place-order-page .content-page {
     flex-direction: column;
     gap: 20px;
