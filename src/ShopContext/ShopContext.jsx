@@ -25,14 +25,20 @@ const ShopContextProvider = (props) => {
 
     if (safeHasOwn(cartData, safeProductId)) {
       const cartProduct = cartData[safeProductId];
-      if (safeHasOwn(cartProduct, safeColor)) {
-        cartProduct[safeColor] += 1;
-      } else {
-        cartProduct[safeColor] = 1;
+      // منع التعيين على خصائص البروتوتايب
+      if (safeColor !== '__proto__' && safeColor !== 'constructor') {
+        if (safeHasOwn(cartProduct, safeColor)) {
+          cartProduct[safeColor] += 1;
+        } else {
+          cartProduct[safeColor] = 1;
+        }
       }
     } else {
-      const sanitizedColor = sanitizeKey(safeColor); // تنقية مزدوجة للسلامة
-      cartData[safeProductId] = { [sanitizedColor]: 1 };
+      const sanitizedColor = sanitizeKey(safeColor);
+      // إنشاء كائن بدون بروتوتايب
+      const newObj = Object.create(null);
+      newObj[sanitizedColor] = 1;
+      cartData[safeProductId] = newObj;
     }
     setCartItems(cartData);
   }
