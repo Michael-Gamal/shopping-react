@@ -31,7 +31,8 @@ const ShopContextProvider = (props) => {
         cartProduct[safeColor] = 1;
       }
     } else {
-      cartData[safeProductId] = { [safeColor]: 1 };
+      const sanitizedColor = sanitizeKey(safeColor); // تنقية مزدوجة للسلامة
+      cartData[safeProductId] = { [sanitizedColor]: 1 };
     }
     setCartItems(cartData);
   }

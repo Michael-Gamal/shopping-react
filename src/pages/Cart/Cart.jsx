@@ -48,21 +48,25 @@ const Cart = () => {
     }
   }, [cartItems, products])
 const increment = (id, color) => {
-  const key = `${id}-${color}`;
+  const safeId = sanitizeKey(id);
+  const safeColor = sanitizeKey(color);
+  const key = `${safeId}-${safeColor}`;
   const currentQuantity = quantities[key] || 0;
   const newValue = currentQuantity + 1;
   setQuantities((prev) => ({ ...prev, [key]: newValue }));
-  updateQuantity(id, color, newValue);
+  updateQuantity(safeId, safeColor, newValue);
 }
 
 const decrement = (id, color) => {
-  let key = `${id}-${color}`;
-    let currentQuantity = quantities[key] || 0;
+  const safeId = sanitizeKey(id);
+  const safeColor = sanitizeKey(color);
+  const key = `${safeId}-${safeColor}`;
+  let currentQuantity = quantities[key] || 0;
 
   if (currentQuantity > 1) {
     const newValue = currentQuantity - 1;
     setQuantities((prev) => ({ ...prev, [key]: newValue }));
-    updateQuantity(id, color, newValue);
+    updateQuantity(safeId, safeColor, newValue);
   }
 }
 
@@ -88,9 +92,11 @@ const decrement = (id, color) => {
                 <div className="products">
                     {
                         cartData.map((item) => {
-                            let productData = products.find((product) => product._id === item._id);
-                            let key = `${item._id}-${item.color}`;
+                            const safeId = sanitizeKey(item._id);
+                            const safeColor = sanitizeKey(item.color);
+                            const key = `${safeId}-${safeColor}`;
                             let quantity = quantities[key] || 0;
+                            const productData = products.find((product) => product._id === safeId);
                             return (
                                 <div key={item._id} className="product">
                                     <div className="image">
