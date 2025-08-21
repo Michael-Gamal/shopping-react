@@ -14,6 +14,13 @@
 .products {
     padding: 0 20px;
 }
+.slider-auto {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    transition: all 0.3s ease-in-out;
+}.slider-auto > .items {
+}
 /* Add decorative elements */
 @media (max-width: 991.98px) {
     .new-arrivel {

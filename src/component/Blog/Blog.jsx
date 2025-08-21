@@ -3,8 +3,6 @@ import {blogs} from '../../assets/data'
 const Blog = () => {
   return (
 
-
-    
     <section className="blog-section">
         <div className="blogs">
             { 

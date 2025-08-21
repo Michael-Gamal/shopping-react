@@ -1,19 +1,28 @@
 import {useContext, useEffect,useState} from 'react'
 import Title from '../Title/Title.jsx'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules' ;
-import 'swiper/css';
-import 'swiper/css/pagination';
 import { ShopContext } from '../../ShopContext/ShopContextInstance.jsx'
 import Item from '../Item/Item.jsx'
 import './newarrivel.css'
 const NewArrivel = () => {
   const { products } = useContext(ShopContext)
   const [PopularProducts, setPopularProducts] = useState([])
+  const [leftItem, setLeftItem] = useState('0');
   useEffect(() => {
     const data = products.slice(0, 7)
     setPopularProducts(data);
   },[products])
+
+useEffect(() => {
+  const positions = [0, 270, 540];
+  let index = 0;
+  const interval = setInterval(() => {
+    index = (index + 1) % positions.length;
+    setLeftItem(`${positions[index]}px`);
+  }, 3500);
+  return () => clearInterval(interval);
+}, []);
+
+  
   return (
     <section className="new-arrivel">
         <div className="title">
@@ -35,37 +44,13 @@ const NewArrivel = () => {
           </div>
         </div>
         <div className="products">
-          <Swiper
-            autoplay={{
-              delay: 4000,
-              disableOnInteraction: false,
-            }}
-            breakpoints={{
-              300: {
-                slidesPerView: 2,
-                spaceBetween: 15,
-              },
-              500: {
-                slidesPerView: 3,
-                spaceBetween: 20,
-              },
-              768: {
-                slidesPerView: 4,
-                spaceBetween: 25,
-              },
-              1024: {
-                slidesPerView: 5,
-                spaceBetween: 30,
-              },
-            }}
-            modules={[Autoplay]}
-          >
+            <div 
+              style={{right : leftItem }}
+            className='slider-auto' >
             {PopularProducts.map((product) => (
-              <SwiperSlide key={product._id}>
-                <Item products={product}  />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+                <Item products={product} key={product._id} />
+              ))}
+              </div>
         </div>
     </section>
   )
