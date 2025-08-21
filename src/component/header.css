@@ -49,30 +49,44 @@ header .button .login  {
 }
 .user-option {
     position: absolute;
-    bottom: 0;
-    top: 40px;
+    top: 100%;
     right: 0;
-    width: 300px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+    width: 100%;
+    min-width: 200px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     background-color: #fff;
     display: none;
     flex-direction: column;
     z-index: 999;
+    border-radius: 8px;
+    overflow: hidden;
+    transform: translateY(8px);
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
 }
-.user-option button {   
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.user-option button {
     width: 100%;
     cursor: pointer;
     background-color: #fff;
     border: none;
-    border-bottom: 1px solid #000;
-    padding: 10px; 
-    transition: 0.3s;
+    border-bottom: 1px solid #eee;
+    padding: 12px 16px;
+    transition: 0.2s;
     font-size: 16px;
+    text-align: left;
 }
-.user-option button:hover {   
-    background-color: #fcf7f7;
+.user-option button:hover {
+    background-color: #f8f8f8;
 }
-
+.user-option button:last-child {
+    border-bottom: none;
+}
 header .button .cart span {
     position: absolute;
     width: 18px;
@@ -107,51 +121,60 @@ header .burger-links  {
     position: relative;
     background: none;
     border: none;
+    transition: transform 0.3s;
 }
 
 header .burger-links span {
-    width: 20px;
+    width: 24px;
     height: 2px;
     background-color: #000;
+    transition: transform 0.3s, opacity 0.3s;
 }
 
- /* X-Small devices (portrait phones, less than 576px) */
-@media (max-width: 575.98px) {  }
+header .burger-links.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+header .burger-links.active span:nth-child(2) {
+    opacity: 0;
+}
+header .burger-links.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
 
-/*  Small devices (landscape phones, less than 768px) */
-@media (max-width: 767.98px) { 
+ /*  Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
     header .links {
         display: none;
-    }
-        header .links {
         flex-direction: column;
         position: absolute;
         top: 80px;
-        right: 15px;        
+        right: 15px;
         width: calc(100% - 30px);
-        padding-top: 10px;
-        border-radius: inherit;
-        transition: 0.3s;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);;
+        padding: 20px 0;
+        border-radius: 12px;
+        transition: all 0.4s ease;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         z-index: 999;
+        background: white;
+    }
+    
+    header .links a {
+        padding: 15px 25px;
+        font-size: 18px;
+        transition: background 0.3s;
+    }
+    
+    header .links a:hover {
+        background: #f5f5f5;
     }
  }
 
-/*  Medium devices (tablets, less than 992px) */
-@media (min-width: 767.98px) { 
+ /*  Medium devices (tablets, less than 992px) */
+@media (min-width: 767.98px) {
     header .burger-links  {
         display: none;
     }
-        header .button  {
-        gap: 5px;
-    }
- }
- @media (max-width: 377px) { 
-        header .button  {
-        gap: 5px;
-    }
-        header .links {
-        right: 30px;
-        width: calc(100% - 60px);
+    header .button  {
+        gap: 15px;
     }
  }
