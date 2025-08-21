@@ -169,7 +169,7 @@ header .burger-links.active span:nth-child(3) {
     }
  }
 
- /*  Medium devices (tablets, less than 992px) */
+ /*  Medium devices (less than 992px) */
 @media (min-width: 767.98px) {
     header .burger-links  {
         display: none;
