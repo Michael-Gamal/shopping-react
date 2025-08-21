@@ -1,6 +1,6 @@
 import { TbLocation } from 'react-icons/tb'
 import { RiSecurePaymentFill, RiSoundModuleLine } from 'react-icons/ri'
-import { FaUsersLine, FaQuoteLeft } from 'react-icons/fa6'
+import { FaUsersLine } from 'react-icons/fa6'
 const AboutusFueaures = () => {
   return (
     <div>
