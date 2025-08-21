@@ -12,58 +12,60 @@ const NewArrivel = () => {
   const [PopularProducts, setPopularProducts] = useState([])
   useEffect(() => {
     const data = products.slice(0, 7)
-    setPopularProducts(data);  
+    setPopularProducts(data);
   },[products])
   return (
     <section className="new-arrivel">
         <div className="title">
-                    <Title title1 = "New" title2 = "Arrivel" style1= {{
-            fontSize: "35px",
-            marginBottom: "20px",
-        }} style2= {{
-            fontWeight: 'normal',
-            textDecoration: 'underline',
+                    <Title
+                      title1 = "New" 
+                      title2 = "Arrivel"
+                      style1= {{
+              fontSize: "35px",
+              marginBottom: "15px",
+            }}
+            style2={{
+              fontWeight: 'normal',
+              textDecoration: 'underline',
             color : 'rgb(255 143 156)',
         }}  />
-        <div className="desc">
+          <div className="desc">
             Discover the best deals on top-qulaity products, Crafted <br />
             to elevate your everday exprience
-        </div>
-
+          </div>
         </div>
         <div className="products">
-      <Swiper
-        autoplay= {{
-          delay:4000,
-          disableOnInteraction: false,
-        }}
-        breakpoints={{
-          300: {
-            slidesPerView: 2,
-            spaceBetween: 30,
-          },
-          666: {
-            slidesPerView: 3,
-            spaceBetween: 30,
-          },
-          900: {
-            slidesPerView: 4,
-            spaceBetween: 30,
-          },
-          1300: {
-            slidesPerView: 5,
-            spaceBetween: 30,
-          },
-        }}
-        modules={[Autoplay]}
-        className="h-[399px] " 
-      >
-        {PopularProducts.map((product) => (
-          <SwiperSlide key={product._id}>
-            <Item products={product}  />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+          <Swiper
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+            }}
+            breakpoints={{
+              300: {
+                slidesPerView: 2,
+                spaceBetween: 15,
+              },
+              500: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 4,
+                spaceBetween: 25,
+              },
+              1024: {
+                slidesPerView: 5,
+                spaceBetween: 30,
+              },
+            }}
+            modules={[Autoplay]}
+          >
+            {PopularProducts.map((product) => (
+              <SwiperSlide key={product._id}>
+                <Item products={product}  />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
     </section>
   )

@@ -152,14 +152,10 @@
         align-items: center;
     }
 }
-
-
-
-
-
-
-
 @media (max-width: 767.98px) { 
+    .about .titel   {
+        margin-bottom: 0;
+    }
         .about .about-us .contant {
         display: flex;
         flex-wrap: wrap;

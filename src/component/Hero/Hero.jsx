@@ -5,17 +5,18 @@ const Hero = () => {
         <div className="background-image">
             <div className="left">
                 <div className="content">
+                    <h1>Latest technical products</h1>
                     <p>
-                        Lorem ipsum, dolor sit amet consectetur <br />
-                        adipisicing elit. Aperiam recusandae obcaecati
+                        Discover the latest electronics at competitive prices. 
+                        High quality with a one-year replacement warranty.
                     </p>
-                    <button>Explore More</button>
+                    <button className="cta-button">Explore more</button>
                 </div>
             </div>
             <div className="right">
                 <div className="content">
                     <div className="img" />
-                    <button>Explore this product</button>
+                    <button className="cta-button">Explore morer</button>
                 </div>
             </div>
         </div>

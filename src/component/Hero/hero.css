@@ -2,7 +2,7 @@
     height: 680px ;
     width: 100%;
     display: flex;
-
+    margin-bottom: 40px;
 }
 
 .hero .background-image {
@@ -10,10 +10,11 @@
     background-size: cover;
     background-position: center;
     width: 100%;
-    height: calc(100% - 40px);
+    height: 100%;
     border-radius: 18px;
     display: flex;
     justify-content: space-between;
+    padding: 30px;
 }
 .hero .background-image .left  {
     color: #fff;
@@ -24,37 +25,37 @@
     
 }
 .hero .background-image .left .content {
-    margin-left: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 .hero .background-image .left .content p {
     margin-bottom: 20px;
     font-size: 14px;
 }
-.hero .background-image .left .content button {
-    padding: 10px 20px;
-    background-color: #fff;
-    font-size: 15px;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
+.hero .background-image .left .content p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 90%;
 }
 .hero .background-image .right .content  {
-    margin-top: 50px;
-    margin-right: 20px;
+    margin-top: 30px;
     background-color: #fff;
     border-radius: 15px;
     overflow: hidden;
+    transition: transform 0.3s ease;
+}
+.hero .background-image .right .content:hover {
+    transform: translateY(-5px);
 }
 .hero .background-image .right .content .img {
     background-image: url(../../assets/headphones.png);
-    background-size: cover;    
+    background-size: cover;
     width: 195PX;
     height: 195PX;
     background-color: #e5e7eb;
     margin: 10px;  
     margin-bottom: 0;
-    border-radius: 18px;
+    border-radius: 12px;
 }
 .hero .background-image .right .content button {
     margin: 7px auto;
@@ -64,19 +65,55 @@
     width: 90%;
     padding: 4px 0px;
     border: none;
-    
     cursor: pointer;
-    font-size: 12px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.cta-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    }
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    }
+
+@media (max-width: 991.98px) {
+    .hero .background-image {
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero .background-image .left {
+        max-width: 90%;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .hero .background-image .left .content p {
+        max-width: 100%;
+    }
+    .hero .background-image .right .content {
+        margin-top: 0;
+        align-self: center;
+    }
 }
 
-
-@media (max-width: 575.98px) { 
-
+@media (max-width: 575.98px) {
     .hero {
     height: 480px ;
     }
     .hero .background-image {
-        border-radius: 0px;
+        border-radius: 0;
+        padding: 20px;
+    }
+    .hero .background-image .left .content h1 {
+        font-size: 1.8rem;
+    }
+    .hero .background-image .left .content p {
+        font-size: 0.9rem;
     }
     .hero .background-image .right {
         display: none;
