@@ -8,30 +8,14 @@ const About = () => {
     <section className="about">
         <div className="people-says">
             <div className="title">
-                <Title title1 = "People" title2 = "Says" style1= {{
-                    fontSize: "35px",
-                    marginBottom: "20px",
-                }} style2= {{
-                    fontWeight: 'normal',
-                    textDecoration: 'underline',
-                    color : 'rgb(255 143 156)',
-                }}  />
-
+                <Title title1 = "People" title2 = "Says" />
             </div>
                 <Testimonial />
         </div>
             <Trending />
         <div className="about-us">
             <div className="title">
-                <Title title1 = "About" title2 = "Us" style1= {{
-                    fontSize: "35px",
-                    marginBottom: "20px",
-                }} style2= {{
-                    fontWeight: 'normal',
-                    textDecoration: 'underline',
-                    color : 'rgb(255 143 156)',
-                }}  />
-
+                <Title title1 = "About" title2 = "Us" />
             </div>    
             <div className="contant">
                 <AboutusFueaures />

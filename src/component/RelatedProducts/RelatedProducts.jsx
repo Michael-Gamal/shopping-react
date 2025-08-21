@@ -18,14 +18,7 @@ const RelatedProducts = ({product}) => {
   return (
     <section className="related-products">
         <div className="title">
-        <Title title1 = "Related" title2 = "Products" style1= {{
-            fontSize: "35px",
-            marginBottom: "-20px",
-        }} style2= {{
-            fontWeight: 'normal',
-            textDecoration: 'underline',
-            color : 'rgb(255 143 156)',
-        }}  />
+        <Title title1 = "Related" title2 = "Products" />
         </div>
         <div className="items">
                 {relatedProducts.map((productItem) => (

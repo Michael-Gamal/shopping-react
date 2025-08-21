@@ -26,18 +26,7 @@ useEffect(() => {
   return (
     <section className="new-arrivel">
         <div className="title">
-                    <Title
-                      title1 = "New" 
-                      title2 = "Arrivel"
-                      style1= {{
-              fontSize: "35px",
-              marginBottom: "15px",
-            }}
-            style2={{
-              fontWeight: 'normal',
-              textDecoration: 'underline',
-            color : 'rgb(255 143 156)',
-        }}  />
+                    <Title title1 = "New" title2 = "Arrivel" />
           <div className="desc">
             Discover the best deals on top-qulaity products, Crafted <br />
             to elevate your everday exprience

@@ -13,13 +13,7 @@ const CartTotal = () => {
     <section className='cart-total'>
         <div className="cart-amount">
             <div className="title">
-                <Title title1 = "Cart" title2 = "Total" style1= {{
-                    fontSize: "32px",
-                }} style2= {{
-                    fontWeight: 'normal',
-                    textDecoration: 'underline',
-                    color : 'rgb(255 143 156)',
-                }}  />      
+                <Title title1 = "Cart" title2 = "Total"  />      
             </div>
             <div className="content">
                 <div className="details">

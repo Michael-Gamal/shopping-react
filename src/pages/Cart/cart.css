@@ -11,7 +11,6 @@
     margin-bottom: 20px;
 }
 .cart-page .cart .head .title {  
-
     margin-right: 5px;
 }
 .cart-page .cart .head .title h2 {  
@@ -22,10 +21,6 @@
 .cart-page .cart .head .count-item p{
     margin-top: 3px;
     color: rgb(123 123 123);
-}
-.cart-page .cart .body {}
-.cart-page .cart .body .products{
-
 }
 .cart-page .cart .body .products .product {
     background-color: #fff;
@@ -60,8 +55,6 @@
 .cart-page .cart .body .products .product .content .name-delate-product .icon,
 .cart-page .cart .body .products .product .content .count-price-product .count .icon{
     color: rgb(255 143 156);
-    /* display: flex; */
-    /* flex-direction: column; */
     cursor: pointer;
 }
 .cart-page .cart .body .products .product .content .color-product {}
@@ -96,13 +89,6 @@ background-color: #fff;
     align-items: center;
     cursor: pointer;
 }
-.cart-page .cart .body .products .product .content .count-price-product .count .minus,
-.cart-page .cart .body .products .product .content .count-price-product .count .plus{
-
-}
 .cart-page .cart .body .products .product .content .count-price-product .count p{
     color: rgb(123 123 123);
 }
-.cart-page .cart .body .products .product .content .count-price-product .count{}
-.cart-page .cart .body .products .product .content .count-price-product .price{}
-.cart-page .cart .body .products .product .content .count-price-product .price h4{}

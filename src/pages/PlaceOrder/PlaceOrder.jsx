@@ -16,14 +16,7 @@ const PlaceOrder = () => {
 
                 <form className='' action="">
                 <div className="title">
-                    <Title title1 = "Delivery" title2 = "Information" style1= {{
-                        fontSize: "32px",
-                        marginBottom: "30px"
-                    }} style2= {{
-                        fontWeight: 'normal',
-                        textDecoration: 'underline',
-                        color : 'rgb(255 143 156)',
-                    }}  />    
+                    <Title title1 = "Delivery" title2 = "Information" />    
                 </div>
                     <div className="inputs-container">
                         <div className="width-50">

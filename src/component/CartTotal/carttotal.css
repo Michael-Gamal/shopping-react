@@ -10,9 +10,6 @@ section.cart-total {
     padding: 20px 20px;
     flex: .35;
 }
-.cart-amount .title {
-    margin-bottom: 10px;
-}
 .cart-amount .content {
 }
 .cart-amount .content .details {

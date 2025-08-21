@@ -73,13 +73,7 @@ const decrement = (id, color) => {
         <div className="cart">
             <div className="head">
                 <div className="title">
-                <Title title1 = "Cart" title2 = "List" style1= {{
-                    fontSize: "28px",
-                }} style2= {{
-                    fontWeight: 'normal',
-                    textDecoration: 'underline',
-                    color : 'rgb(255 143 156)',
-                }}  />      
+                <Title title1 = "Cart" title2 = "List" />      
                 </div>
                 <div className="count-item">
                     <p>({getCartCount()} Items)</p>

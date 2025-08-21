@@ -157,15 +157,11 @@
 
     height: auto;
 }
-    .related-products .title {
-        margin-bottom: 40px;
-    }
-        .product-page .product-desc .desc .head  {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-    
+.product-page .product-desc .desc .head  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
     .product-page .product-desc .desc .head button {
     margin-right: 0px;
