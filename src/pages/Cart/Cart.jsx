@@ -7,6 +7,7 @@ import { FaMinus, FaPlus } from 'react-icons/fa6'
 import CartTotal from '../../component/CartTotal/CartTotal'
 import Footer from '../../component/Footer/Footer'
 import Header from '../../component/Header'
+import { Link } from 'react-router-dom'
 import { isSafeInput, sanitizeKey, safeHasOwn } from '../../utils/validation'
 const Cart = () => {
 
@@ -73,60 +74,74 @@ const decrement = (id, color) => {
         <div className="cart">
             <div className="head">
                 <div className="title">
-                <Title title1 = "Cart" title2 = "List" />      
+                <Title title1 = "Cart" title2 = "List" />
                 </div>
                 <div className="count-item">
                     <p>({getCartCount()} Items)</p>
                 </div>
             </div>
-            <div className="body">
-                <div className="products">
+            
+            {cartData.length === 0 ? (
+              <div className="empty-cart">
+                <h3>Your cart is empty</h3>
+                <p>Continue shopping to add items</p>
+                <Link to="/collection" className="shop-btn">Shop Now</Link>
+              </div>
+            ) : (
+              <>
+                <div className="body">
+                  <div className="products">
                     {
-                        cartData.map((item) => {
-                            const safeId = sanitizeKey(item._id);
-                            const safeColor = sanitizeKey(item.color);
-                            const key = `${safeId}-${safeColor}`;
-                            let quantity = quantities[key] || 0;
-                            const productData = products.find((product) => product._id === safeId);
-                            return (
-                                <div key={item._id} className="product">
-                                    <div className="image">
-                                        <img className='' src={productData.image[0]} alt="Product" />
-                                    </div>
-                                    <div className="content">
-                                        <div className="name-delate-product">
-                                            <h5 className=''>{productData.name}</h5>
-                                            <FaRegWindowClose 
-                                            onClick={() => {updateQuantity(item._id, item.color, 0)}}
-                                            className='icon'/>
-                                        </div>
-                                        <div className="color-product">
-                                            <p className=''>{item.color}</p>
-                                        </div>
-                                        <div className="count-price-product">
-                                            <div className="count">
-                                                <button onClick={() => decrement(item._id,item.color)} className=''>
-                                                    <FaMinus className='minus icon' />
-                                                </button>
-                                                <p>{quantity}</p>
-                                                <button onClick={() => increment(item._id, item.color)} className=''>
-                                                    <FaPlus className='plus icon' />
-                                                </button>
-                                            </div>
-                                            <div className="price">
-                                                <h4 className=''>{currency}{productData.price}</h4>
-                                            </div>
-                                        </div>
-                                    </div>
+                      cartData.map((item) => {
+                        const safeId = sanitizeKey(item._id);
+                        const safeColor = sanitizeKey(item.color);
+                        const key = `${safeId}-${safeColor}`;
+                        let quantity = quantities[key] || 0;
+                        const productData = products.find((product) => product._id === safeId);
+                        const subtotal = productData.price * quantity;
+
+                        return (
+                          <div key={`${item._id}-${item.color}`} className="product">
+                            <div className="image">
+                              <img className='' src={productData.image[0]} alt="Product" />
+                            </div>
+                            <div className="content">
+                              <div className="name-delate-product">
+                                <h5 className=''>{productData.name}</h5>
+                                <FaRegWindowClose
+                                onClick={() => {updateQuantity(item._id, item.color, 0)}}
+                                className='icon'/>
+                              </div>
+                              <div className="color-product">
+                                <p className=''>{item.color}</p>
+                              </div>
+                              <div className="count-price-product">
+                                <div className="count">
+                                  <button onClick={() => decrement(item._id,item.color)} className=''>
+                                    <FaMinus className='minus icon' />
+                                  </button>
+                                  <p>{quantity}</p>
+                                  <button onClick={() => increment(item._id, item.color)} className=''>
+                                    <FaPlus className='plus icon' />
+                                  </button>
                                 </div>
-                            )
-                        })
+                                <div className="price">
+                                  <h4 className=''>{currency}{productData.price}</h4>
+                                  <p className="subtotal">Subtotal: {currency}{subtotal}</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        )
+                      })
                     }
+                  </div>
                 </div>
-            </div>
-            <div className="">
-                    <CartTotal />
-            </div>
+                <div className="">
+                  <CartTotal />
+                </div>
+              </>
+            )}
         </div>
         <Footer />
     </section>

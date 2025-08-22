@@ -17,8 +17,6 @@ const Collection = () => {
   const [currentPage, setCurrentPage] = useState()
     const itemsPerPage = 8;
 
-  
-  
   const categories = [ 
       "Headphones",
       "Mobiles",
@@ -28,14 +26,12 @@ const Collection = () => {
       "Cameras",
   ]
 
-
 useEffect(() => {
     const productSearch = products.filter(product =>
       product.name.toLowerCase().includes(searchTerm.toLowerCase()));
     setFilteredProducts(productSearch ) ;
     
   }, [searchTerm, products]);
-
 
 const selectedCate = (category) => {
   cateSelect.includes(category) 
@@ -59,14 +55,12 @@ const selectedCate = (category) => {
     }
     
 
-
   useEffect(() => {
     const productSearch = products.filter((product) => cateSelect.includes(product.category));
     setFilteredProducts(productSearch) 
     
     
   }, [cateSelect, products]);
-
 
   const applySorting = ( productList ) => {
   switch (sortType) {
@@ -78,7 +72,6 @@ const selectedCate = (category) => {
       return productList
   }
 }
-
   
   useEffect(() => {
       const filtered = applyFilter()
@@ -86,20 +79,14 @@ const selectedCate = (category) => {
 
       setFilteredProducts( sorted )
       setCurrentPage(1)
-
     },[searchTerm,products,cateSelect,sortType]);
-
-
       const getPaginatedDataProduct = () => {
     const startIndex = (currentPage - 1) * itemsPerPage     // 0   10  20 30 40
     const endIndex = startIndex + itemsPerPage              //10 20 30 40 50
     return filteredProducts.slice(startIndex, endIndex)     // 0-10 10-20 20-30 30-40 40-50
-
   }
   
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage)
-
-
     
     return (
       <div className="collection">
