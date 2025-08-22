@@ -33,7 +33,7 @@ section.product-desc .desc .head button::before{
     background-color: #e5e7eb;
 }
 section.product-desc .desc .head button.active::before{
-    background-color: rgb(255 143 156);
+    background-color: var(--main-color);
 }
 section.product-desc .desc .body  {
     padding: 10px 15px;
@@ -71,7 +71,7 @@ section.product-desc .desc .body .benefit ul li{
         background-color: rgba(255, 143, 156, 0.3);
     }
         .product-page .product-desc .desc .head button.active {
-        background-color: rgb(255 143 156);
+        background-color: var(--main-color);
         color: #fff;
     }
 

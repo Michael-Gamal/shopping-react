@@ -34,12 +34,13 @@ const Contact = () => {
           <p><strong>Phone:</strong> +20 123 456 789</p>
           <p><strong>Address:</strong> 123 Main Street, Cairo, Egypt</p>
         </div>
-        <form className="contact-form" onSubmit={handleSubmit}>
+        <form className="contact-form" onSubmit={handleSubmit} noValidate>
           <div className="input-group">
             <label htmlFor="name">Name</label>
             <input
               type="text"
               name="name"
+              id="name"
               value={form.name}
               onChange={handleChange}
               placeholder="Your Name"
@@ -51,6 +52,7 @@ const Contact = () => {
             <input
               type="email"
               name="email"
+              id="email"
               value={form.email}
               onChange={handleChange}
               placeholder="Your Email"
@@ -61,6 +63,7 @@ const Contact = () => {
             <label htmlFor="message">Message</label>
             <textarea
               name="message"
+              id="message"
               value={form.message}
               onChange={handleChange}
               placeholder="Your Message"

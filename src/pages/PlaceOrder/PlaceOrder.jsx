@@ -214,6 +214,8 @@ const PlaceOrder = () => {
                     <input
                       type="text"
                       placeholder="1234 5678 9012 3456"
+                      maxLength="19"
+                      pattern="[0-9\s]{13,19}"
                       required
                     />
                   </div>
@@ -223,6 +225,8 @@ const PlaceOrder = () => {
                       <input
                         type="text"
                         placeholder="MM/YY"
+                        maxLength="5"
+                        pattern="[0-9]{2}/[0-9]{2}"
                         required
                       />
                     </div>
@@ -231,6 +235,8 @@ const PlaceOrder = () => {
                       <input
                         type="text"
                         placeholder="123"
+                        maxLength="4"
+                        pattern="[0-9]{3,4}"
                         required
                       />
                     </div>

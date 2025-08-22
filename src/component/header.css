@@ -93,7 +93,7 @@ header .button .cart span {
     height: 18px;
     top: -7px;
     right: 0;
-    background-color: rgb(255, 143, 156);
+    background-color: var(--main-color);
     border-radius: 50%;
     display: flex;
     justify-content: center;

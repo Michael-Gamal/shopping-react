@@ -1,4 +1,7 @@
 
+:root {
+--main-color: #007bff
+}
 .max-width-xl {
     max-width: 1399.98px;
     margin: 0 auto;

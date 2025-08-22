@@ -9,7 +9,6 @@
 .product-page .product .slider-product{
     display: flex;
     gap: 10px;
-    /* width: 477px; */
     flex: 1.2;
 }
 .product-page .product .slider-product .side-images {
@@ -59,7 +58,7 @@
 .product-page .product .product-details .stars .revwies{
     margin-left: 10px;
     font-size: 15px;
-    color: rgb(255 143 156);
+    color: var(--main-color);
 }
 .product-page .product .product-details .price-desc .price {
     font-weight: bold;
@@ -119,7 +118,7 @@
     border: none;
     color: #fff;
     font-size: 15px;
-    background-color: rgb(255 143 156);
+    background-color: var(--main-color);
     cursor: pointer;
 }
 .product-page .product .product-details .color-add-fav .add-fav .fav {
