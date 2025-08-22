@@ -27,7 +27,7 @@ header .button {
 header .button .cart ,
 header .button .login  {
     color: black;
-    padding: 10px 15px;
+    padding: 10px ;
     border-radius: 20px;
     border: 1px solid black;
     font-weight: 600;
