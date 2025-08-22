@@ -22,7 +22,7 @@ const Footer = () => {
       </div>
       <div className="copyright">
         <p>© 2023 Shopanza</p>
-<p> All rights reserved.</p>
+        <p> All rights reserved.</p>
       </div>
     </footer>
   )
