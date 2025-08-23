@@ -2,8 +2,7 @@ import './blogComponent.css'
 import {blogs} from '../../assets/data' 
 const Blog = () => {
   return (
-
-    <section className="blog-section">
+    <section className="blog-section" style={{backgroundColor: '#f9f9f9'}}>
         <div className="blogs">
             { 
                 blogs.slice(0,4).map((blog) => (
@@ -20,8 +19,7 @@ const Blog = () => {
                                 <button className='readmore'>Continue Reading </button>
                             </p>
                         </div>
-                    </div>
-                    )   
+                    </div> )   
                 )
             }
         </div>

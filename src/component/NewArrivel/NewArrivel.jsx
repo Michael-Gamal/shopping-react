@@ -22,24 +22,21 @@ useEffect(() => {
   return () => clearInterval(interval);
 }, []);
 
-  
   return (
     <section className="new-arrivel">
         <div className="title">
-                    <Title title1 = "New" title2 = "Arrivel" />
+          <Title title1 = "New" title2 = "Arrival" />
           <div className="desc">
             Discover the best deals on top-qulaity products, Crafted <br />
             to elevate your everday exprience
           </div>
         </div>
         <div className="products">
-            <div 
-              style={{right : leftItem }}
-            className='slider-auto' >
-            {PopularProducts.map((product) => (
-                <Item products={product} key={product._id} />
-              ))}
-              </div>
+            <div style={{right : leftItem }} className='slider-auto' >
+              {PopularProducts.map((product) => (
+                  <Item products={product} key={product._id} />
+                ))}
+            </div>
         </div>
     </section>
   )

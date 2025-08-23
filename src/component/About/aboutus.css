@@ -131,21 +131,21 @@
         flex-direction: column;
         align-items: center;
     }
-        .about .about-us {
+    .about .about-us {
         display: flex;
         flex-direction: column;
     }
-        .about .about-us .contant {
+    .about .about-us .contant {
         display: flex;
         gap: 20px;
     }
-            .about .about-us .contant .box {
+    .about .about-us .contant .box {
         flex-direction: column;
     }
-                .about .about-us .contant .box .icon {
+    .about .about-us .contant .box .icon {
         margin: 0;
     }
-                    .about .about-us .contant .box .text {
+    .about .about-us .contant .box .text {
         align-items: center;
     }
 }
@@ -159,5 +159,4 @@
         gap: 20px;
         justify-content: center;
     }
-
 }

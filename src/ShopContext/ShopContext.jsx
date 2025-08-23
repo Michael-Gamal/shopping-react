@@ -23,8 +23,7 @@ const ShopContextProvider = (props) => {
     const safeColor = sanitizeKey(color);
 
     if (safeHasOwn(cartData, safeProductId)) {
-      const cartProduct = cartData[safeProductId];
-      // منع التعيين على خصائص البروتوتايب
+      const cartProduct = cartData[safeProductId];      
       if (safeColor !== '__proto__' && safeColor !== 'constructor') {
         if (safeHasOwn(cartProduct, safeColor)) {
           cartProduct[safeColor] += 1;
@@ -34,7 +33,6 @@ const ShopContextProvider = (props) => {
       }
     } else {
       const sanitizedColor = sanitizeKey(safeColor);
-      // إنشاء كائن بدون بروتوتايب
       const newObj = Object.create(null);
       newObj[sanitizedColor] = 1;
       cartData[safeProductId] = newObj;
@@ -82,7 +80,8 @@ const getCartAmount = () => {
         const cartProduct = cartItems[items];
         for (const item in cartProduct) {
           if (safeHasOwn(cartProduct, item)) {
-            const quantity = cartProduct[item];
+            const quantity = Number(cartProduct[item]);
+            if (!Number.isFinite(quantity) || quantity <= 0) continue;
             totalAmount += itemInfo.price * quantity;
           }
         }

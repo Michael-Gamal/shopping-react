@@ -1,7 +1,7 @@
 import { useState } from "react";
-import "./contact.css";
 import Header from "../../component/Header.jsx";
 import Footer from "../../component/Footer/Footer.jsx";
+import "./contact.css";
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState("");

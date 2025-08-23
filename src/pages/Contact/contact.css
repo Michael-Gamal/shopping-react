@@ -4,7 +4,7 @@
   padding: 40px 0;
 }
 
-.contact-container {
+.contact-page .contact-container {
   max-width: 600px;
   margin: 0 auto;
   background: #fff;
@@ -13,7 +13,7 @@
   padding: 36px 28px;
 }
 
-.contact-title {
+.contact-page .contact-title {
   font-size: 28px;
   font-weight: 700;
   color: #007bff;
@@ -21,33 +21,40 @@
   margin-bottom: 18px;
 }
 
-.contact-info {
+.contact-page .contact-desc {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.contact-page .contact-info {
   text-align: center;
   margin-bottom: 24px;
   color: #444;
   font-size: 16px;
 }
 
-.contact-form {
+.contact-page .contact-form {
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
 
-.input-group {
+.contact-page .input-group {
   display: flex;
   flex-direction: column;
 }
 
-.input-group label {
+.contact-page .input-group label {
   font-size: 15px;
   font-weight: 500;
   margin-bottom: 6px;
   color: #333;
 }
 
-.input-group input,
-.input-group textarea {
+.contact-page .input-group input,
+.contact-page .input-group textarea {
   padding: 10px 12px;
   border: 1px solid #ddd;
   border-radius: 6px;
@@ -57,18 +64,18 @@
   resize: vertical;
 }
 
-.input-group input:focus,
-.input-group textarea:focus {
+.contact-page .input-group input:focus,
+.contact-page .input-group textarea:focus {
   border-color: #007bff;
   outline: none;
 }
 
-.form-actions {
+.contact-page .form-actions {
   margin-top: 18px;
   text-align: right;
 }
 
-.contact-submit {
+.contact-page .contact-submit {
   background: #007bff;
   color: #fff;
   padding: 12px 32px;
@@ -80,26 +87,26 @@
   transition: background 0.2s;
 }
 
-.contact-submit:hover:not(:disabled) {
+.contact-page .contact-submit:hover:not(:disabled) {
   background: #0056b3;
 }
 
-.contact-message {
+.contact-page .contact-message {
   margin-top: 12px;
   font-size: 15px;
   text-align: center;
   color: #d32f2f;
 }
 
-.contact-success {
+.contact-page .contact-success {
   color: #388e3c;
 }
 
 @media (max-width: 600px) {
-  .contact-container {
+  .contact-page .contact-container {
     padding: 18px 8px;
   }
-  .contact-title {
+  .contact-page .contact-title {
     font-size: 22px;
   }
 }

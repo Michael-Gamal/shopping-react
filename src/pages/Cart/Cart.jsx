@@ -1,5 +1,4 @@
 import {useContext, useEffect, useState} from 'react'
-import './cart.css'
 import Title from '../../component/Title/Title'
 import { ShopContext } from '../../ShopContext/ShopContextInstance'
 import {  FaRegWindowClose } from 'react-icons/fa'
@@ -9,10 +8,10 @@ import Footer from '../../component/Footer/Footer'
 import Header from '../../component/Header'
 import { Link } from 'react-router-dom'
 import { isSafeInput, sanitizeKey, safeHasOwn } from '../../utils/validation'
+import './cart.css'
 const Cart = () => {
 
   const {products, currency, cartItems, getCartCount,updateQuantity } = useContext(ShopContext)
-
   const [ cartData, setCartData ] = useState([])
   const [ quantities, setQuantities ] = useState({})
 
@@ -20,22 +19,23 @@ const Cart = () => {
     if (products.length > 0) {
       const tempData = [];
       const initialQuantities = {};
-      for (const items in cartItems) {
+      for (const items in cartItems) {    
+        
         if (safeHasOwn(cartItems, items)) {
-          const cartItem = cartItems[items];
+          const cartItem = cartItems[items];  
           for (const item in cartItem) {
             if (safeHasOwn(cartItem, item)) {
-              const quantityValue = cartItem[item];
+              const quantityValue = cartItem[item]; 
               
               if (isSafeInput(quantityValue) && quantityValue > 0) {
-                const safeItems = sanitizeKey(items);
-                const safeItem = sanitizeKey(item);
+                const safeItems = sanitizeKey(items);     
+                const safeItem = sanitizeKey(item);       
                 tempData.push({
                   _id: safeItems,
                   color: safeItem,
                   quantity: quantityValue,
                 });
-                initialQuantities[`${safeItems}-${safeItem}`] = quantityValue;
+                initialQuantities[`${safeItems}-${safeItem}`] = quantityValue;   
               }
             }
           }
@@ -109,19 +109,20 @@ const decrement = (id, color) => {
                               <div className="name-delate-product">
                                 <h5 className=''>{productData.name}</h5>
                                 <FaRegWindowClose
-                                onClick={() => {updateQuantity(item._id, item.color, 0)}}
-                                className='icon'/>
+                                  onClick={() => {updateQuantity(item._id, item.color, 0)}}
+                                  className='icon'
+                                />
                               </div>
                               <div className="color-product">
                                 <p className=''>{item.color}</p>
                               </div>
                               <div className="count-price-product">
                                 <div className="count">
-                                  <button onClick={() => decrement(item._id,item.color)} className=''>
+                                  <button onClick={() => decrement(item._id,item.color)} >
                                     <FaMinus className='minus icon' />
                                   </button>
                                   <p>{quantity}</p>
-                                  <button onClick={() => increment(item._id, item.color)} className=''>
+                                  <button onClick={() => increment(item._id, item.color)} >
                                     <FaPlus className='plus icon' />
                                   </button>
                                 </div>
@@ -137,7 +138,7 @@ const decrement = (id, color) => {
                     }
                   </div>
                 </div>
-                <div className="">
+                <div className="cart-total">
                   <CartTotal />
                 </div>
               </>

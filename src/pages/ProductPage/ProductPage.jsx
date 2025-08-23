@@ -56,11 +56,11 @@ if (!product) {
         <div className="slider-product">
           <div className="side-images">
             <div className="small-image">
-              {product.image.map((item) => (
-                <button key={item.src} onClick={() =>  setImage(item)}>
+              {product.image.map((item,i) => (
+                <button key={String(item)} onClick={() =>  setImage(item)}>
                   <img 
                     src={item}
-                    alt="product" 
+                    alt={`${product.name} thumbnail ${i + 1}`}
                   />
                 </button>
 
@@ -95,17 +95,17 @@ if (!product) {
             <div className="colors">
               <ul> 
               {product.colors.map((item) => (
-                <li key={item.color}
-                  className="color " style={{backgroundColor:`${item}`}}>
-                    <button onClick={() => setColor(item)}>
-                      
-                    {
-                      item === color ? (
-                        <ImCheckmark  style={{ color:`${item === "White" ? "#000" : "#fff "}`}} />
-                      ) : ("")
-                    }
-                    </button>
-                  </li>
+                <li
+                  key={String(item)}
+                  className="color"
+                  style={{ backgroundColor: item }}
+                >
+                  <button onClick={() => setColor(item)}>
+                    {item === color ? (
+                      <ImCheckmark style={{ color: item === 'White' ? '#000' : '#fff' }} />
+                    ) : null}
+                  </button>
+                </li>
               ))}
               </ul>
             </div>
@@ -119,17 +119,17 @@ if (!product) {
               </button>
             </div>
             <div className="free-del">
-                <FaTruckFast /> <span>Free Delivery on orders over 500$</span>
+                <FaTruckFast /> <span>Free Delivery on orders over $500</span>
             </div>
             <hr />
           </div>
           <div className="features">
               <div className="p">
-                <p>Authenticy You Can Trust </p>
-                <p>Enjoy Cash on Delivery For Your Convenience </p>
-                <p>Easy Returns and Exchanges Whithi 7 Days </p>
-              </div>
-          </div>
+                <p>Authenticity you can trust</p>
+                <p>Enjoy cash on delivery for your convenience</p>
+                <p>Easy returns and exchanges within 7 days</p>
+              </div>      
+            </div>
         </div>
       </div>
       <ProductDescription />

@@ -1,8 +1,8 @@
 import {useContext, useState} from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import './header.css'
 import { ShopContext } from '../ShopContext/ShopContextInstance.jsx'
 import { CiUser } from "react-icons/ci";
+import './header.css'
 
 const Header = () => {
 

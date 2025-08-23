@@ -20,11 +20,11 @@
   padding-right: 32px;
 }
 
-form {
+.place-order-page form {
   width: 100%;
 }
 
-.title {
+.place-order-page .title {
   margin-bottom: 24px;
 }
 .place-order-page .cart-amount {
@@ -34,27 +34,27 @@ form {
   display: flex;
   flex-direction: column;
   gap: 18px;
-}
+} 
 
-.input-row {
+.place-order-page .input-row {
   display: flex;
   gap: 18px;
 }
 
-.input-group {
+.place-order-page .input-group {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-.input-group label {
+.place-order-page .input-group label {
   font-size: 15px;
   font-weight: 500;
   margin-bottom: 6px;
   color: #333;
 }
 
-.input-group input {
+.place-order-page .input-group input {
   padding: 10px 12px;
   border: 1px solid #ddd;
   border-radius: 6px;
@@ -63,17 +63,17 @@ form {
   background: #fafafa;
 }
 
-.input-group input:focus {
+.place-order-page .input-group input:focus {
   border-color: #007bff;
   outline: none;
 }
 
-.form-actions {
+.place-order-page .form-actions {
   margin-top: 28px;
   text-align: right;
 }
 
-.submit {
+.place-order-page .submit {
   background: #007bff;
   color: #fff;
   padding: 12px 32px;
@@ -88,16 +88,16 @@ form {
   gap: 8px;
 }
 
-.submit:hover:not(:disabled) {
+.place-order-page .submit:hover:not(:disabled) {
   background: #0056b3;
 }
 
-.submit.submitting {
+.place-order-page .submit.submitting {
   background: #aaa;
   cursor: not-allowed;
 }
 
-.spinner {
+.place-order-page .spinner {
   animation: spin 1s linear infinite;
   font-size: 18px;
 }
@@ -106,7 +106,7 @@ form {
   to { transform: rotate(360deg); }
 }
 
-.right-side {
+.place-order-page .right-side {
   flex: 1.2;
   background: #f9f9f9;
   border-radius: 12px;
@@ -114,28 +114,28 @@ form {
   box-shadow: 0 1px 8px rgba(0,0,0,0.04);
 }
 
-.order-summary {
+.place-order-page .order-summary {
   width: 100%;
 }
 
-.summary-title {
+.place-order-page .summary-title {
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 18px;
   color: #222;
 }
 
-.payment-method {
+.place-order-page .payment-method {
   margin-top: 28px;
 }
 
-.method-options {
+.place-order-page .method-options {
   display: flex;
   gap: 16px;
   margin-bottom: 12px;
 }
 
-.method-option {
+.place-order-page .method-option {
   background: #fff;
   border: 1.5px solid #ddd;
   border-radius: 8px;
@@ -149,17 +149,17 @@ form {
   transition: border-color 0.2s, background 0.2s;
 }
 
-.method-option.active {
+.place-order-page .method-option.active {
   border-color: #007bff;
   background: #eaf4ff;
 }
 
-.method-icon {
+.place-order-page .method-icon {
   font-size: 20px;
   color: #007bff;
 }
 
-.stripe-form {
+.place-order-page .stripe-form {
   margin-top: 12px;
   background: #fff;
   border-radius: 8px;
@@ -167,11 +167,11 @@ form {
   box-shadow: 0 1px 6px rgba(0,0,0,0.03);
 }
 
-.stripe-form .input-group label {
+.place-order-page .stripe-form .input-group label {
   color: #444;
 }
 
-.stripe-form .input-group input {
+.place-order-page .stripe-form .input-group input {
   background: #f5f8fa;
 }
 

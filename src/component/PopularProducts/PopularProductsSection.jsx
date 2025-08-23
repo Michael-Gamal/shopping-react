@@ -1,8 +1,8 @@
 import {useContext,useEffect,useState} from 'react'
-import './popularProducts.css'
 import Title from '../Title/Title.jsx'
 import Item from '../Item/Item.jsx'
 import { ShopContext } from '../../ShopContext/ShopContextInstance.jsx'
+import './popularProducts.css'
 
 const PopularProductsSection = () => {
   const { products } = useContext(ShopContext)
@@ -10,7 +10,6 @@ const PopularProductsSection = () => {
     const [PopularProducts, setPopularProducts] = useState([])
   useEffect(() => {
     const data = products.filter(item => item.popular);
-
     setPopularProducts(data.slice(0, 5));  
   },[products])
   return (
@@ -21,7 +20,6 @@ const PopularProductsSection = () => {
             Discover the best deals on top-qulaity products, Crafted <br />
             to elevate your everday exprience
         </div>
-
         </div>
         <div className="items">
                 {PopularProducts.map((product) => (

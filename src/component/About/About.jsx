@@ -1,8 +1,8 @@
-import './aboutus.css'
 import Title from '../Title/Title'
 import Testimonial from './Testimonial.jsx'
 import Trending from './Trending.jsx';
 import AboutusFueaures from './AboutusFueaures.jsx';
+import './aboutus.css'
 const About = () => {
   return (
     <section className="about">

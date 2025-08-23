@@ -1,22 +1,19 @@
 import {useEffect, useContext,useState} from 'react'
-import './collection.css'
 import { IoIosSearch } from "react-icons/io";
 import { ShopContext } from '../../ShopContext/ShopContextInstance.jsx'
 import Item from '../../component/Item/Item';
 import Footer from '../../component/Footer/Footer.jsx';
 import Header from '../../component/Header.jsx';
+import './collection.css'
 
 const Collection = () => {
-  const { products } = useContext(ShopContext)
-  
+  const { products } = useContext(ShopContext)  
   const [searchTerm, setSearchTerm] = useState("");
   const [cateSelect, setCateSelect] = useState([]);
   const [sortType, setSortType] = useState('relevant')
-
   const [filteredProducts, setFilteredProducts] = useState(products);
-  const [currentPage, setCurrentPage] = useState()
-    const itemsPerPage = 8;
-
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPerPage = 8;
   const categories = [ 
       "Headphones",
       "Mobiles",
@@ -25,13 +22,6 @@ const Collection = () => {
       "Watches",
       "Cameras",
   ]
-
-useEffect(() => {
-    const productSearch = products.filter(product =>
-      product.name.toLowerCase().includes(searchTerm.toLowerCase()));
-    setFilteredProducts(productSearch ) ;
-    
-  }, [searchTerm, products]);
 
 const selectedCate = (category) => {
   cateSelect.includes(category) 
@@ -42,25 +32,14 @@ const selectedCate = (category) => {
 
   const applyFilter = () => {
     let filtered = [...products];
-
       if (searchTerm) {
         filtered = filtered.filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase()))
       }
-
       if (cateSelect.length) {
         filtered = filtered.filter((product) => cateSelect.includes(product.category))
     }
         return filtered
-    
     }
-    
-
-  useEffect(() => {
-    const productSearch = products.filter((product) => cateSelect.includes(product.category));
-    setFilteredProducts(productSearch) 
-    
-    
-  }, [cateSelect, products]);
 
   const applySorting = ( productList ) => {
   switch (sortType) {
@@ -76,18 +55,16 @@ const selectedCate = (category) => {
   useEffect(() => {
       const filtered = applyFilter()
       const sorted = applySorting(filtered)
-
       setFilteredProducts( sorted )
       setCurrentPage(1)
     },[searchTerm,products,cateSelect,sortType]);
-      const getPaginatedDataProduct = () => {
-    const startIndex = (currentPage - 1) * itemsPerPage     // 0   10  20 30 40
-    const endIndex = startIndex + itemsPerPage              //10 20 30 40 50
-    return filteredProducts.slice(startIndex, endIndex)     // 0-10 10-20 20-30 30-40 40-50
-  }
-  
-  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage)
     
+    const getPaginatedDataProduct = () => {
+    const startIndex = (currentPage - 1) * itemsPerPage     
+    const endIndex = startIndex + itemsPerPage              
+    return filteredProducts.slice(startIndex, endIndex)     
+  }
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage)
     return (
       <div className="collection">
         <Header />
@@ -98,7 +75,6 @@ const selectedCate = (category) => {
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search for products..." name="" id="" />
             <IoIosSearch />
-
           </div>
           <div className="fillter-cate">
             <h3>Category</h3>
@@ -123,12 +99,9 @@ const selectedCate = (category) => {
         </div>
         <div className="items-container">
               {
-                
                 getPaginatedDataProduct().length > 0 ? (
-                  
-                  
                   getPaginatedDataProduct().map((productsItems) => 
-                    <Item key={productsItems._id}  products = {productsItems} />
+                    <Item key={String(productsItems._id)}  products = {productsItems} />
                 )) : (
                   <p>
                     No products found for select filters
@@ -142,18 +115,15 @@ const selectedCate = (category) => {
               <button 
                 disabled={currentPage === 1} 
                 onClick={() => setCurrentPage(prev => prev - 1 )}
-                className={  ` prev ${currentPage === 1 && "notactive"}`}>
+                className={`prev ${currentPage === 1 ? "notactive" : ""}`}>
                   Previous 
-            </button>
-
+              </button>
             {Array.from({ length: totalPages }, (_, index) => (
               <button 
                 key={index +   1} 
                 onClick={() => setCurrentPage(index + 1)}
-                className={` numpage
-                ${currentPage === index + 1 && "activepage"}
-                  btn-light !py-1 !px-3`}
-                >
+                className={` numpage ${currentPage === index + 1 ? "activepage" : ""}`}
+              >
                   {index + 1}
               </button>
             ))}
@@ -161,9 +131,7 @@ const selectedCate = (category) => {
             <button 
                 disabled={currentPage === totalPages} 
                 onClick={() => setCurrentPage(prev => prev + 1 )}
-                className={`next
-                  ${currentPage === totalPages && "notactive"}`}
-                >
+                className={`next ${currentPage === totalPages ? "notactive" : ""}`}>
                   Next
             </button> 
           </div>

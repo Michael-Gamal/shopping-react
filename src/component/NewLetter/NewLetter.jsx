@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import './newletter.css';
 import { FaFacebookF } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io";
 import { MdOutlineSportsBasketball } from "react-icons/md";
+import './newletter.css';
 
 const NewLetter = () => {
   const [email, setEmail] = useState('');
@@ -29,14 +29,9 @@ const NewLetter = () => {
     <section className='newsletter' aria-label="Newsletter Subscription">
       <div className="boxes">
         <div className="box">
-          <h3>
-            Newsletter
-          </h3>
-          <p>
-            Get the latest updates on events, sales, and special offers.
-          </p>
+          <h3> Newsletter </h3>
+          <p> Get the latest updates on events, sales, and special offers. </p>
         </div>
-        
 
         <div className="box">
           <form onSubmit={handleSubmit} className="newsletter-form">

@@ -1,13 +1,12 @@
-import '../../component/Blog/blogComponent.css'
-import './blog.css'
 import {blogs} from '../../assets/data'
 import Header from '../../component/Header'
 import Footer from '../../component/Footer/Footer'
+import '../../component/Blog/blogComponent.css'
 const Blog = () => {
   return (
-    <div className="blog-section">
+    <div className="blog-section" style={{backgroundColor: '#f9f9f9'}}>
         <Header />
-              <div className="blogs">
+            <div className="blogs">
             { 
                 blogs.map((blog) => (
                     <div className="blog" key={blog.title}>
@@ -23,8 +22,7 @@ const Blog = () => {
                                 <button className='readmore'>Continue Reading </button>
                             </p>
                         </div>
-                    </div>
-                    )   
+                    </div>)   
                 )
             }
         </div>

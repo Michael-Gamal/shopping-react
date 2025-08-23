@@ -1,6 +1,6 @@
 import  FooterImage  from '../../assets/cards.png'
-import './footer.css'
 import FooterLinks from './FooterLinks'
+import './footer.css'
 const Footer = () => {
   return (
     <footer>
